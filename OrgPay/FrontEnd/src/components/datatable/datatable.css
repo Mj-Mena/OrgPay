@@ -70,6 +70,7 @@
 
 .datagrid{
     background-color:#596e79;
+    box-shadow: #1f2020;
 }
 
 .datagrid .MuiDataGrid-cellContent{
