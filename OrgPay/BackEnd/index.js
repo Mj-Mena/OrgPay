@@ -1,0 +1,60 @@
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const UsersModel = require("./models/Users");
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+app.get("/", (res, req) => {
+  console.log("hi");
+  console.log(req);
+});
+app.post("/signup", async (req, res) => {
+  try {
+    const allUsers = await UsersModel.find();
+    console.log(allUsers);
+    const findUser = await UsersModel.findOne({ Email: req.body.Email });
+    if (findUser) {
+      res.json("email is already used");
+    } else {
+      const users = await UsersModel.create(req.body);
+      res.json(users);
+    }
+  } catch (err) {
+    res.json(err);
+  }
+});
+
+app.post("/Login", async (req, res) => {
+  try {
+    const findUser = await UsersModel.findOne({ Email: req.body.Email });
+    if (findUser) {
+      if (req.body.Email === "admin@adminacc.com") {
+        if (findUser.Password === req.body.Password) {
+          res.json("admin");
+        } else {
+          res.json("Password didn't match");
+        }
+      } else {
+        res.json("user");
+      }
+    } else {
+      res.json("Doesn't have an account");
+    }
+  } catch (err) {
+    res.json(err);
+  }
+});
+
+mongoose
+  .connect("mongodb://127.0.0.1:27017/Users")
+  .then(() => {
+    app.listen(3001, () => {
+      console.log("connecting to server");
+    });
+  })
+  .catch(() => {
+    console.log("can't find db");
+  });

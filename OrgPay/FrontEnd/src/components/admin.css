@@ -1,0 +1,32 @@
+
+.home{
+    display: flex;
+    background-color:#596e79 ;
+}
+
+.homeContainer{
+    flex: 8;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+.widgets{
+    display: flex;
+    padding: 60px;
+    align-items: center;
+    justify-content: center;
+    background-color: white ;
+}
+
+.table{
+    display: flex;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.Head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0%;
+}
