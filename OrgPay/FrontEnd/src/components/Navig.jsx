@@ -39,12 +39,12 @@ function Navig() {
                 </a>
               </li>
             </ul>
-            <button>
+            <button className="loginbutton">
               <a href="/login" style={{ textDecoration: "none" }}>
                 Login
               </a>
             </button>
-            <button>
+            <button className="signupbutton">
               <a href="/signup" style={{ textDecoration: "none" }}>
                 Sign up
               </a>

@@ -11,9 +11,12 @@ function Login() {
     axios
       .post("http://localhost:3001/Login", { Email, Password })
       .then((result) => {
+        console.log(result);
         alert(result.data);
         if (result.data === "admin") {
           navigate("/admin");
+        } else if (result.data === "Doesn't have an account") {
+          navigate("#");
         } else {
           navigate("/");
         }
@@ -22,7 +25,6 @@ function Login() {
   };
   return (
     <>
-      <Navig />
       <div className="signCont">
         <div className="signDiv">
           <div>
@@ -34,11 +36,13 @@ function Login() {
                 type="text"
                 placeholder="Email"
                 onChange={(e) => SetEmail(e.target.value)}
+                required
               />
               <input
                 type="text"
                 placeholder="Password"
                 onChange={(e) => SetPassword(e.target.value)}
+                required
               />
               <p>
                 <a
@@ -53,38 +57,30 @@ function Login() {
                   Forgot Password ?{" "}
                 </a>
               </p>
-              <button
-                type="submit"
-                style={{
-                  border: "none",
-                  width: "40%",
-                  height: "40px",
-                  borderRadius: "150px",
-                  backgroundColor: "#596e79",
-                  color: "white",
-                  marginTop: "1%",
-                }}
-              >
-                Submit
+              <button type="submit" className="logButton">
+                Login
               </button>
             </form>
           </div>
           <div className="colorRight ">
             <div className="textInColorRight">
-              <h1 style={{ color: " rgb(239, 242, 248)" }}>Open the App </h1>
+              <h1 style={{ color: " rgb(239, 242, 248)" }}>New Here ? </h1>
               <p
                 style={{
                   color: " rgb(215, 215, 215)",
                   fontFamily: "'Poppins' san-serif",
                   lineHeight: "1.5rem",
                   fontSize: ".9rem",
-                  maxWidth: "320px",
+                  maxWidth: "300px",
                   marginLeft: "12%",
                 }}
               >
-                Ensure seamless transactions—update your payment method now for
-                uninterrupted service. Your convenience matters to us.
+                We provide the efficient way of paying bills so come and join in
+                our community
               </p>
+              <button className="logBut">
+                <a href="/signup">Sign Up</a>
+              </button>
             </div>
           </div>
         </div>

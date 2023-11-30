@@ -4,8 +4,8 @@ import Login from "./components/Login";
 import Signup from "./components/signup";
 import Admin from "./components/admin";
 import Transactions from "./components/transactions/transactions";
-import Users from "./components/users/users";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Au from "./components/Alluser/AllUser";
 function App() {
   return (
     <>
@@ -16,7 +16,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
           <Route path="/admin/transactions" element={<Transactions />}></Route>
-          <Route path="/admin/users" element={<Users />}></Route>
+          <Route path="/admin/users" element={<Au />}></Route>
         </Routes>
       </BrowserRouter>
     </>

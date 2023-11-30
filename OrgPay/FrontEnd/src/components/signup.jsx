@@ -31,25 +31,28 @@ function Signup() {
   };
   return (
     <>
-      <Navig />
       <div className="signCont">
         <div className="signDiv">
           <div className="colorLeft ">
             <div className="textInColor">
-              <h1 style={{ color: " rgb(239, 242, 248)" }}>New Here ? </h1>
+              <h1 style={{ color: " rgb(239, 242, 248)" }}>Open the App </h1>
               <p
                 style={{
                   color: " rgb(215, 215, 215)",
                   fontFamily: "'Poppins' san-serif",
                   lineHeight: "1.5rem",
                   fontSize: ".9rem",
-                  maxWidth: "300px",
+                  maxWidth: "320px",
                   marginLeft: "12%",
                 }}
               >
-                We provide the efficient way of paying bills so come and join in
-                our community
+                Ensure seamless transactions—update your payment method now for
+                uninterrupted service. Your convenience matters to us.
               </p>
+
+              <button className="logBut">
+                <a href="/login">Login</a>
+              </button>
             </div>
           </div>
           <div className="formForSignup">
@@ -61,21 +64,25 @@ function Signup() {
                 type="text"
                 placeholder="Username"
                 onChange={(e) => SetUsername(e.target.value)}
+                required
               />
               <input
                 type="text"
                 placeholder="Password"
                 onChange={(e) => SetPassword(e.target.value)}
+                required
               />
               <input
                 type="text"
                 placeholder="Re-type Password"
                 onChange={(e) => SetRePassword(e.target.value)}
+                required
               />
               <input
                 type="text"
                 placeholder="Email"
                 onChange={(e) => SetEmail(e.target.value)}
+                required
               />
               <select
                 onChange={(e) => {
@@ -85,6 +92,7 @@ function Signup() {
                 name=""
                 id=""
                 className="phraseDrop"
+                required
               >
                 <option value="" className="disable">
                   Choose Secret Phrase...
@@ -100,19 +108,10 @@ function Signup() {
                 type="text"
                 placeholder={Tagg}
                 onChange={(e) => SetPhrase(e.target.value)}
+                required
               />
-              <button
-                type="submit"
-                style={{
-                  border: "none",
-                  width: "40%",
-                  height: "40px",
-                  borderRadius: "150px",
-                  backgroundColor: "#596e79",
-                  color: "white",
-                }}
-              >
-                Submit
+              <button className="logButton" type="submit">
+                Sign Up
               </button>
             </form>
           </div>
