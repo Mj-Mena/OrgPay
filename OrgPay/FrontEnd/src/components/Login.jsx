@@ -18,7 +18,7 @@ function Login() {
         } else if (result.data === "Doesn't have an account") {
           navigate("#");
         } else {
-          navigate("/");
+          navigate("/User");
         }
       })
       .catch((err) => console.log(err));

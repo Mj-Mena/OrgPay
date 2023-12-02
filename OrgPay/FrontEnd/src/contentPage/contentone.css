@@ -1,0 +1,339 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@300;500&family=Poppins:wght@300;500&display=swap");
+@import url("https://fonts.cdnfonts.com/css/acumin-pro");
+
+* {
+  font-family: acumin pro;
+  color: #596e79;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(242, 243, 255, 1) 100%
+  );
+}
+
+.head {
+  width: 100%;
+  height: 5vh;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 2px 2px rgb(216, 217, 227);
+}
+
+.contentMain {
+  display: grid;
+  padding-top: 40px;
+  width: 80%;
+  height: 90vh;
+  margin: auto;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+
+.contentMain > * {
+  padding: 20px;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 5px 5px 8px 5px rgb(216, 217, 227);
+  margin: 10px;
+  height: auto;
+  width: auto;
+  box-sizing: border-box;
+}
+
+.contentSub1 {
+  position: relative;
+  grid-row: 1 / span 2;
+  grid-column: 1 / span 1;
+  border-radius: 20px 5px 5px 20px;
+  box-sizing: border-box;
+}
+
+.contentSub2 {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 2;
+  border-radius: 5px 20px 5px 5px;
+}
+
+.contentSub3 {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 2;
+  border-radius: 5px 5px 20px 5px;
+}
+
+.balanceGreeting {
+  position: relative;
+  font-size: 30px;
+  color: rgb(47, 59, 80);
+  margin-bottom: 10px;
+  left: 5px;
+}
+
+.balanceCont {
+  width: auto;
+  height: auto;
+}
+
+.balanceMain {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 135px;
+  margin: auto;
+  border-radius: 10px;
+  background-color: #596e79;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+}
+
+.balanceDisp {
+  position: absolute;
+  top: 45px;
+  left: 30px;
+  font-weight: 550;
+  font-size: 9vh;
+  color: aliceblue;
+}
+
+.balanceLabel {
+  position: absolute;
+  top: 20px;
+  left: 35px;
+  font-size: 3vh;
+  color: aliceblue;
+}
+
+.logOutButton {
+  margin-top: 80%;
+  padding: 10px;
+  height: 35px;
+  width: 100%;
+  bottom: 10px;
+  border-radius: 5px 5px 10px 10px;
+  align-self: center;
+}
+
+.hovbutt {
+  background-color: #596e79;
+  color: aliceblue;
+  transition: 300ms;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.hovbutt:hover {
+  color: #596e79;
+  background-color: aliceblue;
+}
+
+.hovbutt:hover > .iconHold {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.hlev {
+  color: aliceblue;
+}
+
+.buttonHolder {
+  display: flex;
+  grid-template-columns: auto;
+  position: relative;
+  top: 0px;
+  margin-top: 10px;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.funcButton {
+  height: 150px;
+  font-size: 2vh;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  margin: auto;
+  flex: 1;
+  margin: 5px;
+}
+
+.addFunds {
+  height: 150px;
+  font-size: 2vh;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  margin: auto;
+  flex: 1;
+  margin: 5px;
+}
+
+.modalTest {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  width: 40%;
+  height: 70%;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.heading {
+  position: absolute;
+  padding: 10px;
+  width: 100%;
+  height: 10%;
+  background-color: #596e79;
+  box-sizing: border-box;
+  top: 0px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.fundsCont {
+  position: absolute;
+  top: 10%;
+  height: 80%;
+  font-size: 20px;
+  padding: 15px;
+  text-align: justify;
+  color: #596e79;
+}
+
+.fundsCont * {
+  color: #596e79;
+}
+
+.footing {
+  position: absolute;
+  padding: 10px;
+  width: 100%;
+  height: 10%;
+  background-color: #596e79;
+  box-sizing: border-box;
+  bottom: 0px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.confcans {
+  position: absolute;
+  margin: auto;
+  width: 10%;
+  height: 50%;
+  right: 10px;
+  background-color: aliceblue;
+  color: #596e79;
+  border-radius: 5px;
+}
+
+.infoMain {
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 10px 10px 5px 5px;
+  background-color: #596e79;
+  height: 35%;
+  box-sizing: border-box;
+}
+
+.backToTop {
+  display: none;
+  background-color: #596e79;
+  color: aliceblue;
+  position: fixed;
+  z-index: 10;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 3s;
+}
+
+.backToTop:hover {
+  background-color: aqua;
+}
+
+.iconHold {
+  background-color: aliceblue;
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  border-radius: 30% 10% 10% 10%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.sendMon {
+  position: relative;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.sendModal {
+  font-size: large;
+  top: 50px;
+  position: relative;
+  background-color: aliceblue;
+  height: 60%;
+  width: 50%;
+  margin: auto;
+  border-radius: 10px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.sendCans {
+  position: absolute;
+  padding: 5px;
+  right: 10px;
+  background-color: #596e79;
+  color: aliceblue;
+  border-radius: 5px;
+}
