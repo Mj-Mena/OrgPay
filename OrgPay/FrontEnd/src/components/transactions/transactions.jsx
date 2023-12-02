@@ -7,6 +7,7 @@ const Transactions = () => {
         <div className="home">
             <Sidebar/>
             <div className="homeContainer">
+                <h2 className="pangaln">Transaction History</h2>
                 <div className="table">
                     <List/>
                 </div>

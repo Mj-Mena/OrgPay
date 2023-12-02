@@ -1,15 +1,17 @@
 .home{
     display: flex;
-    background: linear-gradient(
-        90deg,
-        rgba(2, 0, 36, 1) 0%,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(242, 243, 255, 1) 100%
-        );
-    flex: 6;
+    background: white;
+    flex-direction: row  ;
+    gap: 1rem;
 }
 
 .homeContainer{
-    flex: 8;
+    min-width: 110%;
+
 }
 
+.pangaln{
+    display: flex;
+    padding-left: 30px;
+    padding-top: 10px;
+}

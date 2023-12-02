@@ -27,6 +27,7 @@ table {
 table > thead > tr > th {
   width: 20%;
   height: 50px;
+  color: white;
 }
 
 .data {
@@ -35,14 +36,15 @@ table > thead > tr > th {
 }
 tr {
   border-bottom: solid 1px white;
-  color: white;
 }
 .datacont {
   margin-left: 5%;
+  margin-right: 5%;
   padding: 2% 0;
   padding-left: 2%;
+  padding-right: 2%;
   width: 102%;
-  background-color: #cfcfcf;
+  background-color: white;
 }
 .aubut {
   border: none;
@@ -60,4 +62,10 @@ tr {
 .aubut:hover {
   color: black;
   background-color: white;
+}
+
+.homeContainer{
+  flex: 8;
+  background-color: #eff0f4;
+  border-radius: 20px;
 }

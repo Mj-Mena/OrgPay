@@ -23,62 +23,63 @@ function Alluser() {
       {openModal && (
         <Modal OnExit={handleClose} saved={handleClose} currem={crem} />
       )}
-      <div className="aucont">
+      <div className="home">
         <section>
           <Sidebar />
         </section>
-
-        <section>
-          <h1>Welcome</h1>
-          <div className="datacont">
-            <table>
-              <thead>
-                <tr>
-                  <th>Username</th>
-                  <th> Email</th>
-                  <th>Balance</th>
-                  <th>Update</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {users.map((user) => (
-                  <tr className="data" key={user.Username}>
-                    <td>{user.Username}</td>
-                    <td>{user.Email}</td>
-                    <td>{user.Username}</td>
-                    <td>
-                      <button
-                        className="aubut"
-                        onClick={() => {
-                          const id = user._id;
-                          setCrem(id);
-                          setOpenModal(true);
-                        }}
-                      >
-                        {up}
-                      </button>
-                    </td>
-                    <td>
-                      <button
-                        className="aubut"
-                        onClick={() => {
-                          const id = user._id;
-                          axios.delete(
-                            `http://localhost:3001/admin/user/${id}`
-                          );
-                        }}
-                      >
-                        {del}
-                      </button>
-                    </td>
+        <div className="homeContainer">
+          <section>
+            <h1>Welcome</h1>
+            <div className="datacont">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Username</th>
+                    <th> Email</th>
+                    <th>Balance</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>{" "}
-          </div>
-        </section>
+                </thead>
+
+                <tbody>
+                  {users.map((user) => (
+                    <tr className="data" key={user.Username}>
+                      <td>{user.Username}</td>
+                      <td>{user.Email}</td>
+                      <td>{user.Username}</td>
+                      <td>
+                        <button
+                          className="aubut"
+                          onClick={() => {
+                            const id = user._id;
+                            setCrem(id);
+                            setOpenModal(true);
+                          }}
+                        >
+                          {up}
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          className="aubut"
+                          onClick={() => {
+                            const id = user._id;
+                            axios.delete(
+                              `http://localhost:3001/admin/user/${id}`
+                            );
+                          }}
+                        >
+                          {del}
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>{" "}
+            </div>
+          </section>
+        </div>
       </div>
     </>
   );
