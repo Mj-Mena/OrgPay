@@ -1,11 +1,34 @@
+import { useEffect } from "react";
 import "./components.css";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useAnimation } from "framer-motion";
 import { BiBadgeCheck } from "react-icons/bi";
 import { BsShieldLock } from "react-icons/bs";
 import { BsBookmarkCheck } from "react-icons/bs";
 function Second() {
+  const { ref, inView } = useInView();
+  const animation = useAnimation();
+  useEffect(() => {
+    console.log(inView);
+    if (inView) {
+      animation.start({
+        y: 5,
+        opacity: 100,
+        transition: { duration: 0.3 },
+      });
+    }
+    if (!inView) {
+      animation.start({
+        y: 50,
+        opacity: 0,
+        transition: { duration: 0.3 },
+      });
+    }
+  }, [inView]);
   return (
     <>
-      <div className="secondCont">
+      <motion.div className="secondCont" animate={animation}>
         <section className="servCont">
           <div id="Ourservices" className="line"></div>
           <p className="serv">Benifits you get when using our services</p>
@@ -22,7 +45,7 @@ function Second() {
                 }}
               />
             </section>
-            <section>
+            <section ref={ref}>
               <h2>Convenience</h2>
               <p>
                 streamlined transactions, offering users effortless and
@@ -69,7 +92,7 @@ function Second() {
             </section>
           </div>
         </section>
-      </div>
+      </motion.div>
     </>
   );
 }

@@ -48,4 +48,6 @@ Table{
 
 .table .MuiPaper-root{
     box-shadow: none;
+    background-color: #c7c7c7;
+    border-radius: 20px;
 }

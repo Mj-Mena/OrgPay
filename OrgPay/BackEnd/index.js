@@ -7,11 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (res, req) => {
-  console.log("hi");
-  console.log(req);
-});
+app.get("/", (res, req) => {});
 app.post("/signup", async (req, res) => {
+  console.log("Hi");
   try {
     const allUsers = await UsersModel.find();
     console.log(allUsers);
@@ -47,7 +45,40 @@ app.post("/Login", async (req, res) => {
     res.json(err);
   }
 });
+app.get("/admin", (req, res) => {
+  UsersModel.find()
+    .then((users) => res.json(users))
+    .catch((err) => res.json(err));
+});
+app.get("/admin/users", (req, res) => {
+  UsersModel.find()
+    .then((users) => res.json(users))
+    .catch((err) => res.json(err));
+});
 
+app.put("/update", async (req, res) => {
+  const id = req.body.id;
+  const usern = req.body.usern;
+  const email = req.body.email;
+  const balance = req.body.balance;
+  let doc = await UsersModel.findOneAndUpdate(
+    { _id: id },
+    { Username: usern, Email: email, Balance: balance }
+  );
+  let change = await UsersModel.findOne({ _id: id });
+  console.log(doc);
+  try {
+  } catch (err) {
+    console.log(err);
+  }
+  res.send("updated");
+});
+
+app.delete("/admin/user/:id", async (req, res) => {
+  const id = req.params.id;
+  await UsersModel.findOneAndDelete({ _id: id });
+  res.send("Item Deleted");
+});
 mongoose
   .connect("mongodb://127.0.0.1:27017/Users")
   .then(() => {
