@@ -34,6 +34,12 @@ const Sidebar = () => {
               <span className="Menu">Transactions</span>
             </li>
           </Link>
+          <Link to="/admin/topay" style={{ textDecoration: "none" }}>
+            <li className="sidetags">
+              <ReceiptIcon className="iccon" />
+              <span className="Menu">To Pay</span>
+            </li>
+          </Link>
           <li className="sidetags">
             <LogoutIcon className="iccon" />
             <span className="Menu">
