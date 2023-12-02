@@ -55,6 +55,30 @@ app.get("/admin/users", (req, res) => {
     .then((users) => res.json(users))
     .catch((err) => res.json(err));
 });
+
+app.put("/update", async (req, res) => {
+  const id = req.body.id;
+  const usern = req.body.usern;
+  const email = req.body.email;
+  const balance = req.body.balance;
+  let doc = await UsersModel.findOneAndUpdate(
+    { _id: id },
+    { Username: usern, Email: email, Balance: balance }
+  );
+  let change = await UsersModel.findOne({ _id: id });
+  console.log(doc);
+  try {
+  } catch (err) {
+    console.log(err);
+  }
+  res.send("updated");
+});
+
+app.delete("/admin/user/:id", async (req, res) => {
+  const id = req.params.id;
+  await UsersModel.findOneAndDelete({ _id: id });
+  res.send("Item Deleted");
+});
 mongoose
   .connect("mongodb://127.0.0.1:27017/Users")
   .then(() => {

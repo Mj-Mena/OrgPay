@@ -14,14 +14,13 @@ body {
   overflow-x: hidden;
 }
 table {
-  width: 80vw;
+  width: 70vw;
   text-align: left;
   padding-left: 10%;
   background-color: #596e79;
-  border-bottom: solid 1px white;
-  margin-left: 5%;
 }
 .aucont {
+  z-index: 7;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -32,4 +31,31 @@ table > thead > tr > th {
 
 .data {
   height: 50px;
+}
+tr {
+  border-bottom: solid 1px white;
+}
+.datacont {
+  margin-left: 5%;
+  padding: 2% 0;
+  padding-left: 2%;
+  width: 102%;
+  background-color: #cfcfcf;
+}
+.aubut {
+  border: none;
+  margin-top: -3%;
+  height: 30px;
+  margin-left: -10%;
+  width: 50%;
+  border-radius: 150px;
+  background-color: #596e79;
+  border: solid 1px white;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.aubut:hover {
+  color: black;
+  background-color: white;
 }
