@@ -31,9 +31,11 @@ table > thead > tr > th {
 
 .data {
   height: 50px;
+  color: white;
 }
 tr {
   border-bottom: solid 1px white;
+  color: white;
 }
 .datacont {
   margin-left: 5%;

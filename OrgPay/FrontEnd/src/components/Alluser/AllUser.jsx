@@ -37,8 +37,8 @@ function Alluser() {
                   <th>Username</th>
                   <th> Email</th>
                   <th>Balance</th>
-                  <th>Delete</th>
                   <th>Update</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
 
