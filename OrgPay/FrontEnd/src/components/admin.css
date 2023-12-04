@@ -1,12 +1,8 @@
 
-.home{
-    display: flex;
-    background-color:#596e79 ;
-}
 
 .homeContainer{
     flex: 8;
-    background-color: #ffffff;
+    background-color: #eff0f4;
     border-radius: 20px;
 }
 
@@ -15,18 +11,19 @@
     padding: 60px;
     align-items: center;
     justify-content: center;
-    background-color: white ;
+    background-color: #eff0f4 ;
+    width: 90%;
 }
 
 .table{
     display: flex;
     padding: 50px;
-    border-radius: 20px;
+    border-radius: 10px;
+    width: 95%;
 }
 
 .Head{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-left: 10px;
     margin: 0%;
 }

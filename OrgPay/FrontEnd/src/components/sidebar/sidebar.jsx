@@ -43,7 +43,9 @@ const Sidebar = () => {
           <li className="sidetags">
             <LogoutIcon className="iccon" />
             <span className="Menu">
-              <a href="/">Logout</a>
+              <a href="/" style={{ textDecoration: "none", color: "white" }}>
+                Logout
+              </a>
             </span>
           </li>
         </ul>

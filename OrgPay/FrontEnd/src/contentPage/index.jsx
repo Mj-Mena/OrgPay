@@ -2,7 +2,6 @@ import React from "react";
 import { FaHistory, FaMoneyBillAlt } from "react-icons/fa";
 import { RiMailSendLine } from "react-icons/ri";
 import SendModal from "../sendModal";
-import Navi from "../components/Navig";
 import "./contentone.css";
 
 var modal = document.getElementById("myModal");
@@ -56,7 +55,6 @@ const ContentOne = (props) => {
 
   return (
     <nav>
-      <Navi />
       <div className="head" id="top1"></div>
       <div className="contentMain">
         <div className="contentSub1">
