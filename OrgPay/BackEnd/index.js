@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const UsersModel = require("./models/Users");
+const ToPayModel = require("./models/Topay");
 
 const app = express();
 app.use(express.json());
@@ -22,6 +23,17 @@ app.post("/signup", async (req, res) => {
     }
   } catch (err) {
     res.json(err);
+  }
+});
+app.post("/admin/topay", async (req, res) => {
+  try {
+    const topay = await ToPayModel.create({
+      Title: req.body.title,
+      Description: req.body.desc,
+      Amount: req.body.amount,
+    });
+  } catch (error) {
+    console.log(error);
   }
 });
 
@@ -50,12 +62,16 @@ app.get("/admin", (req, res) => {
     .then((users) => res.json(users))
     .catch((err) => res.json(err));
 });
+app.get("/admin/topay", (req, res) => {
+  ToPayModel.find()
+    .then((topays) => res.json(topays))
+    .catch((err) => res.json(err));
+});
 app.get("/admin/users", (req, res) => {
   UsersModel.find()
     .then((users) => res.json(users))
     .catch((err) => res.json(err));
 });
-
 app.put("/update", async (req, res) => {
   const id = req.body.id;
   const usern = req.body.usern;
@@ -73,10 +89,33 @@ app.put("/update", async (req, res) => {
   }
   res.send("updated");
 });
+app.put("/admin/topay/update", async (req, res) => {
+  const id = req.body.id;
+  const title = req.body.Title;
+  const desc = req.body.Description;
+  const amount = req.body.Amount;
+  let doc = await ToPayModel.findOneAndUpdate(
+    { _id: id },
+    { Title: title, Description: desc, Amount: amount }
+  );
+  let change = await UsersModel.findOne({ _id: id });
+  console.log(doc);
+  try {
+  } catch (err) {
+    console.log(err);
+  }
+  res.send("updated");
+});
 
 app.delete("/admin/user/:id", async (req, res) => {
   const id = req.params.id;
   await UsersModel.findOneAndDelete({ _id: id });
+  res.send("Item Deleted");
+});
+
+app.delete("/admin/topay/:id", async (req, res) => {
+  const id = req.params.id;
+  await ToPayModel.findOneAndDelete({ _id: id });
   res.send("Item Deleted");
 });
 mongoose

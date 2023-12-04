@@ -13,11 +13,13 @@ function Signup() {
     try {
       e.preventDefault();
       if (RePassword === Password) {
+        const Balance = 0;
         const result = await axios.post("http://localhost:3001/signup", {
           Username,
           Email,
           Password,
           Phrase,
+          Balance,
         });
         result.data == "email is already used"
           ? alert(result.data)

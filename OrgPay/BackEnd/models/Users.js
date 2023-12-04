@@ -8,4 +8,5 @@ const UsersSchema = new mongoose.Schema({
   Balance: Number,
 });
 const UsersModel = new mongoose.model("users", UsersSchema);
+
 module.exports = UsersModel;

@@ -47,7 +47,7 @@ function Alluser() {
                     <tr className="data" key={user.Username}>
                       <td>{user.Username}</td>
                       <td>{user.Email}</td>
-                      <td>{user.Username}</td>
+                      <td>{user.Balance}</td>
                       <td>
                         <button
                           className="aubut"
