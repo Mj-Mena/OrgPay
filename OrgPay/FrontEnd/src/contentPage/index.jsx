@@ -3,6 +3,7 @@ import { FaHistory, FaMoneyBillAlt } from "react-icons/fa";
 import { RiMailSendLine } from "react-icons/ri";
 import SendModal from "../sendModal";
 import "./contentone.css";
+import LogMain from "../log";
 
 var modal = document.getElementById("myModal");
 var log = document.getElementById("logs");
@@ -54,12 +55,11 @@ const ContentOne = (props) => {
   }
 
   return (
-    <nav>
+    <nav className="wew">
       <div className="head" id="top1"></div>
       <div className="contentMain">
         <div className="contentSub1">
-          <h1>May Logo Dapat Dito</h1>
-          <br />
+          <h1>OrgPay</h1>
           <div className="infoMain">
             <h1 style={{ color: "aliceblue" }}>ACCOUNT INFO</h1>
             <br />
@@ -106,17 +106,17 @@ const ContentOne = (props) => {
           </div>
         </div>
         <div className="contentSub3">
-          <h1 style={{ color: "#596e79" }}>INSPIRATIONAL QUOTE HERE</h1>
+          <h3 style={{ color: "#596e79" }}>To Pay</h3>
         </div>
       </div>
       <div id="myModal" className="modalTest">
         <div className="modal-content">
           <header className="heading">
-            <h1>ADD FUNDS</h1>
+            <h1 style={{color: 'aliceblue'}}>ADD FUNDS</h1>
           </header>
 
           <div className="fundsCont">
-            <h2 style={{ color: "#596e79" }}>Dear User,</h2>
+            <h3 style={{ color: "#596e79" }}>Dear User,</h3>
             <br />
             Please coordinate with your campus YPADS treasure to add funds to
             your account. Your current YPADS treasurer is Mark Jerome Gimena. He
@@ -138,7 +138,9 @@ const ContentOne = (props) => {
           </button>
         </div>
       </div>
-      <div id="logs"></div>
+      <div id="logs">
+        <LogMain/>
+      </div>
       <button className="backToTop" onClick={topFunction} id="myBtn">
         Back to top
       </button>
