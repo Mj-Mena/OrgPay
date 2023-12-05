@@ -40,3 +40,20 @@
     box-sizing: border-box;
     margin-bottom: 20px;
   }
+
+  .logHolder{
+    position: relative;
+    display: flex;
+    height: 30px;
+    border-radius: 20px 5px 5px 5%;
+    padding: 5px;
+    border-style: solid;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .logHolder *{
+    position: relative;
+    width: 100%;
+    margin: auto;
+  }
