@@ -40,14 +40,12 @@ const Sidebar = () => {
               <span className="Menu">To Pay</span>
             </li>
           </Link>
-          <li className="sidetags">
-            <LogoutIcon className="iccon" />
-            <span className="Menu">
-              <a href="/" style={{ textDecoration: "none", color: "white" }}>
-                Logout
-              </a>
-            </span>
-          </li>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <li className="sidetagsLL">
+              <LogoutIcon className="iccon" />
+              <span className="Menu">Logout</span>
+            </li>
+          </Link>
         </ul>
       </div>
     </div>

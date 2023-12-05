@@ -14,7 +14,7 @@ body {
   overflow-x: hidden;
 }
 table {
-  width: 70vw;
+  width: 90vw;
   text-align: left;
   padding-left: 10%;
   background-color: #596e79;
@@ -38,13 +38,12 @@ tr {
   border-bottom: solid 1px white;
 }
 .datacont {
+  display: flex;
   margin-left: 5%;
   margin-right: 5%;
-  padding: 2% 0;
-  padding-left: 2%;
-  padding-right: 2%;
-  width: 102%;
-  background-color: white;
+  border: solid 25px #ffffff;
+  border-radius: 10px;
+  box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.18);
 }
 .aubut {
   border: none;
@@ -68,4 +67,13 @@ tr {
   flex: 8;
   background-color: #eff0f4;
   border-radius: 20px;
+}
+
+
+.headdit{
+  display: flex;
+  color: gray;
+  padding-left: 60px;
+  padding-top: 20px;
+  margin: 30px;
 }

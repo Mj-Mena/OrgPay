@@ -1,4 +1,7 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+@import url("https://fonts.cdnfonts.com/css/neue-helvetica-bq");
+@import url("https://fonts.cdnfonts.com/css/acumin-pro");
+@import url("https://fonts.cdnfonts.com/css/acumin-pro?styles=16574");
 
 .table .cellWrapper {
     display: flex;
@@ -51,4 +54,9 @@ Table{
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.18);
+}
+
+.table .MuiTableCell-root{
+    font-family: "Acumin Pro", sans-serif;
+    font-size: 21px;
 }

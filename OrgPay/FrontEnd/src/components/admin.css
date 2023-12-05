@@ -20,10 +20,11 @@
     padding: 50px;
     border-radius: 10px;
     width: 95%;
+    max-height: 70%;
 }
 
 .Head{
     display: flex;
-    padding-left: 10px;
+    padding-left: 40px;
     margin: 0%;
 }

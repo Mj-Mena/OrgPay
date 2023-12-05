@@ -33,7 +33,7 @@ const List = () => {
       >
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">Uername</TableCell>
+            <TableCell className="tableCell">Username</TableCell>
             <TableCell className="tableCell">Date</TableCell>
             <TableCell className="tableCell">Amount</TableCell>
 

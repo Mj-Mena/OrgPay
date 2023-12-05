@@ -29,7 +29,7 @@ function Alluser() {
         </section>
         <div className="homeContainer">
           <section>
-            <h1>Welcome</h1>
+            <h3 className="headdit">All Users</h3>
             <div className="datacont">
               <table>
                 <thead>

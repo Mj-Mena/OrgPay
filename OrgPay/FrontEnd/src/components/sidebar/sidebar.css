@@ -30,21 +30,9 @@ hr {
 }
 
 .side {
-  display: flex;
-  flex-direction: column;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1rem;
-  transition: all 0.2s ease-in;
-}
-.side > a {
-  transition: all 0.2s ease-in;
-  height: 10%;
-  border-radius: 150px;
-}
-.side > a:hover {
-  background-color: #708b99;
 }
 
 .title {
@@ -58,10 +46,18 @@ hr {
 .sidetags {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 10px;
-  padding-left: 30px;
+  padding: 20px;
   cursor: pointer;
+}
+
+.sidetags:hover{
+  background-color: rgba(218, 218, 218, 0.171);
+  border-radius: 70px;
+}
+
+.sidetagsLL:hover{
+  background-color: rgba(218, 218, 218, 0.171);
+  border-radius: 70px;
 }
 
 .iccon {
@@ -74,4 +70,12 @@ hr {
   font-weight: 600;
   margin-left: 10px;
   color: white;
+}
+
+.sidetagsLL {
+  display: flex;
+  align-items: center;
+  margin-top: 200px;
+  padding: 20px;
+  cursor: pointer;
 }
