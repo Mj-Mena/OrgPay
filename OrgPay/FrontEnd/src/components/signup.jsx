@@ -9,6 +9,7 @@ function Signup() {
   const [Email, SetEmail] = useState();
   const [Tagg, SetTagg] = useState();
   const [Phrase, SetPhrase] = useState();
+  const [Balance, SetBalance] = useState();
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();

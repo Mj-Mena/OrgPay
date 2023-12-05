@@ -1,9 +1,13 @@
 import React from "react";
 import { FaHistory, FaMoneyBillAlt } from "react-icons/fa";
 import { RiMailSendLine } from "react-icons/ri";
+import { BsCash } from "react-icons/bs";
+import { PiHamburgerBold } from "react-icons/pi";
 import SendModal from "../sendModal";
 import "./contentone.css";
 import LogMain from "../log";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 var modal = document.getElementById("myModal");
 var log = document.getElementById("logs");
@@ -11,7 +15,7 @@ let mybutton = document.getElementById("myBtn");
 var top = document.getElementById("top1");
 var send = document.getElementById("sendMoney");
 
-const ContentOne = (props) => {
+function ContentOne(){
   const username = "Elias Paniki";
   const userBalance = 69420.21;
 
@@ -53,7 +57,6 @@ const ContentOne = (props) => {
       mybutton.style.display = "none";
     }
   }
-
 
   return (
     <nav className="wew">
@@ -108,6 +111,29 @@ const ContentOne = (props) => {
         </div>
         <div className="contentSub3">
           <h3 style={{ color: "#596e79" }}>To Pay</h3>
+          <div className="itemHolder">
+
+            <button className="item"><BsCash size={50}/><h3>Org Fee</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+          </div>
         </div>
       </div>
       <div id="myModal" className="modalTest">
