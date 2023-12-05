@@ -18,6 +18,7 @@ function Signup() {
           Email,
           Password,
           Phrase,
+          Balance,
         });
         result.data == "email is already used"
           ? alert(result.data)
