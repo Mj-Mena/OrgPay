@@ -1,13 +1,10 @@
 import React from "react";
 import { FaHistory, FaMoneyBillAlt } from "react-icons/fa";
 import { RiMailSendLine } from "react-icons/ri";
-import { BsCash } from "react-icons/bs";
-import { PiHamburgerBold } from "react-icons/pi";
 import SendModal from "../sendModal";
 import "./contentone.css";
 import LogMain from "../log";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import ToPay from "../topay";
 
 var modal = document.getElementById("myModal");
 var log = document.getElementById("logs");
@@ -59,7 +56,9 @@ function ContentOne(){
   }
 
   return (
+    
     <nav className="wew">
+      <div className="main">
       <div className="head" id="top1"></div>
       <div className="contentMain">
         <div className="contentSub1">
@@ -73,7 +72,7 @@ function ContentOne(){
             <br />
             <h3 className="hlev">Reference No.: {username}</h3>
           </div>
-          <button className="logOutButton hovbutt">LOG OUT</button>
+          <button className="logOutButton"><a href="/" style={{color:'alice'}}>LOG OUT</a></button>
         </div>
         <div className="contentSub2">
           <div className="balanceCont">
@@ -112,27 +111,7 @@ function ContentOne(){
         <div className="contentSub3">
           <h3 style={{ color: "#596e79" }}>To Pay</h3>
           <div className="itemHolder">
-
-            <button className="item"><BsCash size={50}/><h3>Org Fee</h3></button>
-
-            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
-
-            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
-
-            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
-
-            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
-
-            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
-
-            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
-
-            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
-
-            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
-
-            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
-
+            <ToPay/>
           </div>
         </div>
       </div>
@@ -165,13 +144,20 @@ function ContentOne(){
           </button>
         </div>
       </div>
+      <div id="confMod" className="conf">
+        <div className="confMsg">
+          
+        </div>
+      </div>
       <div id="logs">
         <LogMain/>
       </div>
       <button className="backToTop" onClick={topFunction} id="myBtn">
         Back to top
       </button>
+      </div>
     </nav>
+    
   );
 };
 
