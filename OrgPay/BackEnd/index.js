@@ -3,11 +3,10 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const UsersModel = require("./models/Users");
 const ToPayModel = require("./models/Topay");
-
 const app = express();
+
 app.use(express.json());
 app.use(cors());
-
 app.get("/", (res, req) => {});
 app.post("/signup", async (req, res) => {
   console.log("Hi");
@@ -46,9 +45,10 @@ app.post("/Login", async (req, res) => {
           res.json("admin");
         } else {
           res.json("Password didn't match");
+          res.json({ data: "user", user: findUser });
         }
       } else {
-        res.json("user");
+        res.json({ datames: "user", user: findUser });
       }
     } else {
       res.json("Doesn't have an account");
@@ -57,6 +57,7 @@ app.post("/Login", async (req, res) => {
     res.json(err);
   }
 });
+
 app.get("/admin", (req, res) => {
   UsersModel.find()
     .then((users) => res.json(users))
@@ -106,7 +107,6 @@ app.put("/admin/topay/update", async (req, res) => {
   }
   res.send("updated");
 });
-
 app.delete("/admin/user/:id", async (req, res) => {
   const id = req.params.id;
   await UsersModel.findOneAndDelete({ _id: id });
@@ -117,6 +117,20 @@ app.delete("/admin/topay/:id", async (req, res) => {
   const id = req.params.id;
   await ToPayModel.findOneAndDelete({ _id: id });
   res.send("Item Deleted");
+});
+app.get("/User", async (req, res) => {
+  const topay = await ToPayModel.find();
+  try {
+    res.send({ topay: topay });
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+app.post("/User/:email", async (req, res) => {
+  const userEmail = req.body.UEmail;
+  const findUser = await UsersModel.findOne({ Email: userEmail });
+  res.json(findUser);
 });
 mongoose
   .connect("mongodb://127.0.0.1:27017/Users")
