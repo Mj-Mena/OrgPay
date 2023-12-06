@@ -28,7 +28,7 @@ const LogMain = (props) => {
         <div className="logCont">
           {th?.map((trans) => (
             <div className="logHolder" key={trans._id}>
-              <div className="logNo">{trans.Title}</div>
+              <div className="logNo"> {trans.Title}</div>
               <div className="logFrom">{trans.SenderEmail}</div>
               <div className="logChange">{trans.RecieverEmail}</div>
               <div className="logInfo">{trans.Amount}</div>

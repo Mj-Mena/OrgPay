@@ -337,12 +337,12 @@ body {
 .sendCans {
   position: absolute;
   padding: 5px;
-  width: 120px;
+  width: 48.5%;
   right: 10px;
   bottom: 10px;
   background-color: #596e79;
   color: aliceblue;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .itemHolder {
