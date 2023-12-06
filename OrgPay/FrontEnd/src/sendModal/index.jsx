@@ -7,7 +7,9 @@ const SendModal = (props) => {
   const [usern, setUsern] = useState();
   const [em, setEm] = useState();
   const [id, setId] = useState();
+  const [Uemail, setEmail] = useState();
   const [sendid, setSendId] = useState();
+  const [sendem, setSendEm] = useState();
   const [balance, setbalance] = useState();
   const [sendbalance, setSendBalance] = useState();
   const { email } = useParams();
@@ -31,8 +33,10 @@ const SendModal = (props) => {
       .then((data) => {
         console.log(data);
         setbalance(data.data.Log.Balance);
-        setId(data.data.Log._id); // id ng user na nakalogin
+        setId(data.data.Log._id);
+        setEmail(data.data.Log.Email); // id ng user na nakalogin
         setSendId(data.data.transact._id);
+        setSendEm(data.data.transact.Email);
         setSendBalance(data.data.transact.Balance);
       })
       .catch((err) => {
@@ -40,17 +44,16 @@ const SendModal = (props) => {
       });
 
     if (amount < balance) {
+      axios.post("http://localhost:3001/transaction", {
+        User: Uemail,
+        senderEm: sendem,
+        title: "User to User",
+        Samount: amount,
+      });
       var newBalance = balance - amount;
       var sendBalance = Number(sendbalance) + Number(amount);
-      console.log(newBalance);
-      console.log(reference);
+
       //update ng naka log na user
-      axios.put("http://localhost:3001/User/:email", {
-        userlogId: id,
-        baltoUp: newBalance,
-        sendLogId: sendid,
-        sendbalancetoup: sendBalance,
-      });
       axios
         .put("http://localhost:3001/User/:email", {
           userlogId: id,
@@ -58,11 +61,9 @@ const SendModal = (props) => {
           sendLogId: sendid,
           sendbalancetoup: sendBalance,
         })
-        .then((userLog) => {
-          console.log(userLog);
-        })
-        .catch((err) => {
-          console.log(err);
+        .then((result) => {
+          console.log(result);
+          alert("sended Please refresh the site");
         });
     } else {
       console.log("Insuficient Balance");

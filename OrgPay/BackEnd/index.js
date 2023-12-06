@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const UsersModel = require("./models/Users");
 const ToPayModel = require("./models/Topay");
+const TransacModel = require("./models/ItemTrans");
+const transModel = require("./models/ItemTrans");
 const app = express();
 
 app.use(express.json());
@@ -133,6 +135,8 @@ app.post("/User/:email", async (req, res) => {
   const transac = await UsersModel.findOne({ _id: id });
   const findUser = await UsersModel.findOne({ Email: userEmail });
   res.json({ Log: findUser, transact: transac });
+
+  // transaction
 });
 app.get("/User/:email", async (req, res) => {
   const id = req.body.id;
@@ -157,6 +161,20 @@ app.put("/User/:email", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
+});
+app.post("/transaction", async (req, res) => {
+  const senderEmail = req.body.senderEm;
+  const emailUser = req.body.User;
+  const title = req.body.title;
+  const amount = req.body.Samount;
+
+  const users = await transModel.create({
+    Title: title,
+    SenderEmail: senderEmail,
+    RecieverEmail: emailUser,
+    Amount: amount,
+  });
+  res.json(users);
 });
 mongoose
   .connect("mongodb://127.0.0.1:27017/Users")
