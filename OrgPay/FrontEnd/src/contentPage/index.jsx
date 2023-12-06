@@ -110,9 +110,7 @@ function ContentOne(){
         </div>
         <div className="contentSub3">
           <h3 style={{ color: "#596e79" }}>To Pay</h3>
-          <div className="itemHolder">
             <ToPay/>
-          </div>
         </div>
       </div>
       <div id="myModal" className="modalTest">
