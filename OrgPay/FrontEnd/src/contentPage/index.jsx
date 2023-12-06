@@ -50,10 +50,12 @@ function ContentOne() {
   }
 
   function sending() {
+    let send = document.getElementById("sendMoney");
     send.style.display = "block";
   }
 
   function sendClose() {
+    let send = document.getElementById("sendMoney");
     send.style.display = "none";
   }
 
@@ -83,9 +85,8 @@ function ContentOne() {
 
   let modal = document.getElementById("myModal");
   let log = document.getElementById("logs");
-  
+
   let top = document.getElementById("top1");
-  let send = document.getElementById("sendMoney");
 
   return (
     <>
@@ -103,11 +104,13 @@ function ContentOne() {
               <br />
               <h4 className="hlev">Reference No.: {id}</h4>
             </div>
-            <a href="/"><button className="logOutButton hovbutt">LOG OUT</button></a>
+            <a href="/">
+              <button className="logOutButton hovbutt">LOG OUT</button>
+            </a>
           </div>
           <div className="contentSub2">
             <div className="balanceCont">
-              <h1 className="balanceGreeting">Welcome  {usern}</h1>
+              <h1 className="balanceGreeting">Welcome {usern}</h1>
               <div className="balanceMain">
                 <div className="balanceLabel">AVAILABLE BALANCE:</div>
                 <div className="balanceDisp">₱ {balance}</div>
@@ -141,7 +144,7 @@ function ContentOne() {
           </div>
           <div className="contentSub3">
             <h3 style={{ color: "#596e79" }}>To Pay</h3>
-              <ToPay/>
+            <ToPay />
           </div>
         </div>
         <div id="myModal" className="modalTest">

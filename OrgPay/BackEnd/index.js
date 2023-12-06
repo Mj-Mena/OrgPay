@@ -129,10 +129,34 @@ app.get("/User", async (req, res) => {
 
 app.post("/User/:email", async (req, res) => {
   const userEmail = req.body.UEmail;
+  const id = req.body.id;
+  const transac = await UsersModel.findOne({ _id: id });
+  const findUser = await UsersModel.findOne({ Email: userEmail });
+  res.json({ Log: findUser, transact: transac });
+});
+app.get("/User/:email", async (req, res) => {
+  const id = req.body.id;
   const findUser = await UsersModel.findOne({ Email: userEmail });
   res.json(findUser);
 });
-
+app.put("/User/:email", async (req, res) => {
+  const id = req.body.userlogId;
+  const bal = req.body.baltoUp;
+  const sendid = req.body.sendLogId;
+  const sendbal = req.body.sendbalancetoup;
+  let doc = await UsersModel.findOneAndUpdate({ _id: id }, { Balance: bal });
+  let up = await UsersModel.findOneAndUpdate(
+    { _id: sendid },
+    { Balance: sendbal }
+  );
+  let change = await UsersModel.findOne({ _id: id });
+  let sendChange = await UsersModel.findOne({ _id: sendid });
+  res.send({ user: change, sendUser: sendChange });
+  try {
+  } catch (err) {
+    console.log(err);
+  }
+});
 mongoose
   .connect("mongodb://127.0.0.1:27017/Users")
   .then(() => {
