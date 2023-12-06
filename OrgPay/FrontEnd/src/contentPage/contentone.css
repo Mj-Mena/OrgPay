@@ -2,12 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@300;500&family=Poppins:wght@300;500&display=swap");
 @import url("https://fonts.cdnfonts.com/css/acumin-pro");
 
-* {
-  font-family: acumin pro;
-}
-html {
-  scroll-behavior: smooth;
-}
 body {
   margin: 0;
   background: rgb(2, 0, 36);
@@ -142,7 +136,7 @@ body {
 
 .hovbutt:hover > .iconHold {
   border-style: solid;
-  background-color:#596e79 ;
+  background-color: #596e79;
   color: aliceblue;
   border-width: 1px;
 }

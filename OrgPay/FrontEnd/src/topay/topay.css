@@ -1,8 +1,8 @@
-.itemHolder{
+.itemHolder {
   display: inline-block;
   text-align: left;
   position: relative;
-  border-style: Solid; 
+  border-style: Solid;
   overflow-x: scroll;
   border-width: 2px;
   width: calc(100% - 30px);
@@ -11,19 +11,19 @@
   height: 120px;
 }
 
-.item{ 
-    color: #596e79;
-    height: calc(100% - 20px);
-    width: 120px;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 20px 10px 10px 10px;
-    text-align: center;
-    height: 100%;
-    margin-right: 10px;
-  }
+.item {
+  color: #596e79;
+  height: calc(100% - 20px);
+  width: 120px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 20px 10px 10px 10px;
+  text-align: center;
+  height: 100%;
+  margin-right: 10px;
+}
 
-.conShade{
+.conShade {
   position: relative;
   position: fixed;
   display: none;
@@ -38,7 +38,7 @@
   background-color: rgba(0, 0, 0, 0.95);
 }
 
-.confirmModal{
+.confirmModal {
   font-size: 3vh;
   top: 50px;
   position: relative;
@@ -49,10 +49,10 @@
   border-radius: 10px;
   padding: 10px;
   overflow: hidden;
-  text-align: center;  
+  text-align: center;
 }
 
-.butt{
+.butt {
   font-size: 2vh;
   margin-top: 5vh;
   width: 15vh;
@@ -60,8 +60,4 @@
   margin-left: 2vh;
   margin-right: 2vh;
   border-radius: 1vh;
-}
-
-.butthold{
-
 }

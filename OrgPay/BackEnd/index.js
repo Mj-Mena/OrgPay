@@ -65,6 +65,12 @@ app.get("/admin", (req, res) => {
     .then((users) => res.json(users))
     .catch((err) => res.json(err));
 });
+app.get("/admin/transactions", (req, res) => {
+  transModel
+    .find()
+    .then((users) => res.json(users))
+    .catch((err) => res.json(err));
+});
 app.get("/admin/topay", (req, res) => {
   ToPayModel.find()
     .then((topays) => res.json(topays))
