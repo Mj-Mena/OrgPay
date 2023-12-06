@@ -17,7 +17,7 @@ const LogMain = (props) => {
                 </div>
                 <div className="logCont">
                     {wew?.map((x) =>( <div className="logHolder" key={'he'}>
-                        <div className="logNo">{tranNo}</div>
+                        <div className="logNo">{x}</div>
                         <div className="logFrom">{sender}</div>
                         <div className="logChange">{amount}</div>
                         <div className="logInfo">{desc}</div>
