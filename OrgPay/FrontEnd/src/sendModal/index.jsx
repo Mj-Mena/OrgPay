@@ -21,30 +21,17 @@ const SendModal = (props) => {
       .then((result) => {})
       .catch((err) => console.log(err));
   }, [email]);
-  useEffect(() => {
-    console.log(email);
-    axios
-      .post("http://localhost:3001/User/:email", { UEmail: email }) // sa user na nakabukas
-      .then((result) => {
-        setbalance(result.data.Log.Balance);
-        setId(result.data.Log._id); // id ng user na nakalogin
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  useEffect(() => {
-    console.log(email);
-    axios
-      .post("http://localhost:3001/User/:email", { UEmail: email }) // sa user na nakabukas
-      .then((result) => {
-        setbalance(result.data.Log.Balance);
-        setId(result.data.Log._id); // id ng user na nakalogin
-      })
-      .catch((err) => console.log(err));
-  }, []);
+
   const checkBal = async () => {
     axios
-      .post("http://localhost:3001/User/:email", { id: reference }) // sa sesendan
+      .post("http://localhost:3001/User/:email", {
+        id: reference,
+        UEmail: email,
+      }) // sa sesendan
       .then((data) => {
+        console.log(data);
+        setbalance(data.data.Log.Balance);
+        setId(data.data.Log._id); // id ng user na nakalogin
         setSendId(data.data.transact._id);
         setSendBalance(data.data.transact.Balance);
       })

@@ -149,6 +149,7 @@ app.put("/User/:email", async (req, res) => {
     { _id: sendid },
     { Balance: sendbal }
   );
+  console.log(up);
   let change = await UsersModel.findOne({ _id: id });
   let sendChange = await UsersModel.findOne({ _id: sendid });
   res.send({ user: change, sendUser: sendChange });
