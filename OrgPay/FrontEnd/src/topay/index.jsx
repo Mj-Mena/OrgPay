@@ -47,6 +47,9 @@ const ToPay = (props) => {
               const id = data._id;
               setId(id);
               console.log(id);
+              showMod();
+                
+
             }}
           >
             <BsCash size={25} />
@@ -57,9 +60,11 @@ const ToPay = (props) => {
       </div>
       <div className="conShade" id="mod">
         <div className="confirmModal">
-          Are Your Sure?
+          Confirm Transaction
           <div className="butthold">
-            <button className="butt" id="conf">
+            <button className="butt" id="conf" onClick={(e)=>{
+                window.location.reload();
+            }}>
               Confirm
             </button>
             <button className="butt" id="cans" onClick={hideMod}>

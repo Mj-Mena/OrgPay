@@ -143,6 +143,14 @@ app.get("/User/:email", async (req, res) => {
   const findUser = await UsersModel.findOne({ Email: userEmail });
   res.json(findUser);
 });
+
+app.get("/User/:email/get", async (req, res) => {
+  const tranLoc = await TransacModel.find()
+  res.json(tranLoc);
+});
+
+
+
 app.put("/User/:email", async (req, res) => {
   const id = req.body.userlogId;
   const bal = req.body.baltoUp;
