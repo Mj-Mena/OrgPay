@@ -1,8 +1,13 @@
 import React from "react";
 import { FaHistory, FaMoneyBillAlt } from "react-icons/fa";
 import { RiMailSendLine } from "react-icons/ri";
+import { BsCash } from "react-icons/bs";
+import { PiHamburgerBold } from "react-icons/pi";
 import SendModal from "../sendModal";
 import "./contentone.css";
+import LogMain from "../log";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 var modal = document.getElementById("myModal");
 var log = document.getElementById("logs");
@@ -10,7 +15,7 @@ let mybutton = document.getElementById("myBtn");
 var top = document.getElementById("top1");
 var send = document.getElementById("sendMoney");
 
-const ContentOne = (props) => {
+function ContentOne(){
   const username = "Elias Paniki";
   const userBalance = 69420.21;
 
@@ -54,12 +59,11 @@ const ContentOne = (props) => {
   }
 
   return (
-    <nav>
+    <nav className="wew">
       <div className="head" id="top1"></div>
       <div className="contentMain">
         <div className="contentSub1">
-          <h1>May Logo Dapat Dito</h1>
-          <br />
+          <h1>OrgPay</h1>
           <div className="infoMain">
             <h1 style={{ color: "aliceblue" }}>ACCOUNT INFO</h1>
             <br />
@@ -106,17 +110,40 @@ const ContentOne = (props) => {
           </div>
         </div>
         <div className="contentSub3">
-          <h1 style={{ color: "#596e79" }}>INSPIRATIONAL QUOTE HERE</h1>
+          <h3 style={{ color: "#596e79" }}>To Pay</h3>
+          <div className="itemHolder">
+
+            <button className="item"><BsCash size={50}/><h3>Org Fee</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+            <button className="item"><PiHamburgerBold size={50}/><h3>Burger</h3></button>
+
+          </div>
         </div>
       </div>
       <div id="myModal" className="modalTest">
         <div className="modal-content">
           <header className="heading">
-            <h1>ADD FUNDS</h1>
+            <h1 style={{color: 'aliceblue'}}>ADD FUNDS</h1>
           </header>
 
           <div className="fundsCont">
-            <h2 style={{ color: "#596e79" }}>Dear User,</h2>
+            <h3 style={{ color: "#596e79" }}>Dear User,</h3>
             <br />
             Please coordinate with your campus YPADS treasure to add funds to
             your account. Your current YPADS treasurer is Mark Jerome Gimena. He
@@ -138,7 +165,9 @@ const ContentOne = (props) => {
           </button>
         </div>
       </div>
-      <div id="logs"></div>
+      <div id="logs">
+        <LogMain/>
+      </div>
       <button className="backToTop" onClick={topFunction} id="myBtn">
         Back to top
       </button>
