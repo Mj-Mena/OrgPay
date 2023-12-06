@@ -1,7 +1,7 @@
 import Sidebar from "./sidebar/sidebar";
 import "./admin.css";
 import Widget from "./widget/widget";
-import List from "./table/table";
+import List from "./table/list2";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
