@@ -46,7 +46,6 @@ const ToPay = (props) => {
             onClick={(e) => {
               const id = data._id;
               setId(id);
-              console.log(id);
             }}
           >
             <BsCash size={25} />

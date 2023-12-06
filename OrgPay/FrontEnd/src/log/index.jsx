@@ -1,19 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "./log.css";
+import { useParams } from "react-router-dom";
 
 const LogMain = (props) => {
-  var tranNo = 1;
-  var sender = "Admin";
-  var amount = -100;
-  var desc = "Org Fee";
   const [th, setTh] = useState();
-
+  const { email } = useParams();
   var wew = [1, 2, 3, 4, 5];
   useEffect(() => {
     axios
-      .post("http://localhost:3001/User/:email")
+      .post("http://localhost:3001/User/:email", { tem: email })
       .then((result) => {
+        console.log(result);
         setTh(result.data.transloc);
       })
       .catch((err) => {

@@ -131,10 +131,11 @@ app.get("/User", async (req, res) => {
 
 app.post("/User/:email", async (req, res) => {
   const userEmail = req.body.UEmail;
+  const tem = req.body.tem;
   const id = req.body.id;
   const transac = await UsersModel.findOne({ _id: id });
   const findUser = await UsersModel.findOne({ Email: userEmail });
-  const transloc = await transModel.find();
+  const transloc = await transModel.find({ SenderEmail: tem });
 
   res.json({ Log: findUser, transact: transac, transloc: transloc });
 
@@ -172,8 +173,8 @@ app.post("/transaction", async (req, res) => {
 
   const users = await transModel.create({
     Title: title,
-    SenderEmail: senderEmail,
-    RecieverEmail: emailUser,
+    SenderEmail: emailUser,
+    RecieverEmail: senderEmail,
     Amount: amount,
   });
   res.json(users);
