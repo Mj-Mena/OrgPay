@@ -133,34 +133,6 @@ app.post("/User/:email", async (req, res) => {
   res.json(findUser);
 });
 
-app.put('/updateBalance/:email', async (req, res) => {
-  try {
-    const userEmail = req.params.UEmail;
-    const { amount } = req.body;
-
-    // Validate that amount is a number
-    if (typeof amount !== 'number') {
-      return res.status(400).json({ error: 'Amount must be a number' });
-    }
-
-    // Find the user by ID and update the balance
-    const updatedUser = await User.findOneAndUpdate(
-      { _id: userEmail },
-      { $inc: { balance: -amount } }, // Use $inc to decrement the balance
-      { new: true }
-    );
-
-    if (!updatedUser) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-
-    return res.json(updatedUser);
-  } catch (error) {
-    console.error('Error updating balance:', error);
-    return res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
 mongoose
   .connect("mongodb://127.0.0.1:27017/Users")
   .then(() => {

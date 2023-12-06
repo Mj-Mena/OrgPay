@@ -2,6 +2,12 @@ import { useRef, useState } from "react";
 import './log.css';
 
 const LogMain = (props) => {
+    var tranNo = 1
+    var sender = 'Admin'
+    var amount = -100
+    var desc = 'Org Fee'
+
+    var wew = [1,2,3,4,5]
 
     return(
         <nav>
@@ -10,19 +16,14 @@ const LogMain = (props) => {
                     <h1 style={{fontSize:'30px'}}>TRANSACTION HISTORY</h1>
                 </div>
                 <div className="logCont">
-                    <div className="logHolder">
-                        <div className="logNo">1</div>
-                        <div className="logFrom">Sender</div>
-                        <div className="logChange">-100</div>
-                        <div className="logInfo">Org Fee</div>
+                    {wew?.map((x) =>( <div className="logHolder" key={'he'}>
+                        <div className="logNo">{tranNo}</div>
+                        <div className="logFrom">{sender}</div>
+                        <div className="logChange">{amount}</div>
+                        <div className="logInfo">{desc}</div>
                     </div>
-
-                    <div className="logHolder">
-                        <div className="logNo">2</div>
-                        <div className="logFrom">Admin</div>
-                        <div className="logChange">+100</div>
-                        <div className="logInfo">Add Funds</div>
-                    </div>
+                    ))}
+                    
 
                 </div>
             </div>

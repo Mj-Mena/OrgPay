@@ -36,10 +36,6 @@ const SendModal = (props) => {
           .catch((err) => console.log(err));
     }, []);
 
-    const updateBalance = async () => {
-        
-      };
-
     const currBal = balance
 
     const checkBal = async () =>{
@@ -47,21 +43,7 @@ const SendModal = (props) => {
         if (amount < currBal){
             var newBalance = currBal-amount
             console.log(newBalance)
-            console.log(email)
-            try {
-                // Make a PUT request to update the user's balance
-                const response = await axios.put(`/updateBalance/${email}`, {
-                  amount: parseInt(amount, 10),
-                });
-          
-                console.log(response.data); // Log the server response
-          
-                // Optionally, you can reset the form or update the UI as needed
-                setUserId('');
-                setAmount('');
-              } catch (error) {
-                console.error('Error updating balance:', error);
-              }
+            console.log(reference)
         }else{
             console.log('Insuficient Balance')
         }
