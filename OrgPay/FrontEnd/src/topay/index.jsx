@@ -9,16 +9,16 @@ const ToPay = (props) => {
     return(
         <nav >
             <div className="itemHolder">
-                <button className="item"><BsCash size={50}/>
+                <button className="item"><BsCash size={25}/>
                     <h3>{itemName}</h3>
                     <h4>₱{price}</h4>
                 </button>
-                <button className="item"><BsCash size={50}/>
+                <button className="item"><BsCash size={25}/>
                     <h3>{itemName}</h3>
                     <h4>₱{price}</h4>
                 </button>
 
-                <button className="item"><BsCash size={50}/>
+                <button className="item"><BsCash size={25}/>
                     <h3>{itemName}</h3>
                     <h4>₱{price}</h4>
                 </button>

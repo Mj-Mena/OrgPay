@@ -11,6 +11,7 @@ function Signup() {
   const [Phrase, SetPhrase] = useState();
   const [Balance, SetBalance] = useState();
   const handleSubmit = async (e) => {
+    (e) => SetBalance(0)
     try {
       e.preventDefault();
       if (RePassword === Password) {

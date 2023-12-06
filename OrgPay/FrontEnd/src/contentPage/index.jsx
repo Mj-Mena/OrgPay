@@ -7,17 +7,13 @@ import LogMain from "../log";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-var modal = document.getElementById("myModal");
-var log = document.getElementById("logs");
-let mybutton = document.getElementById("myBtn");
-var top = document.getElementById("top1");
-var send = document.getElementById("sendMoney");
+import ToPay from "../topay";
 
 function ContentOne() {
   const [usern, setUsern] = useState();
   const [em, setEm] = useState();
   const [id, setId] = useState();
+  const [balance, setbalance] = useState();
   const { email } = useParams();
   useEffect(() => {
     console.log(email);
@@ -37,6 +33,7 @@ function ContentOne() {
         setUsern(result.data.Username);
         setEm(result.data.Email);
         setId(result.data._id);
+        setbalance(result.data.Balance);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -73,6 +70,7 @@ function ContentOne() {
   };
 
   function scrollFunction() {
+    let mybutton = document.getElementById("myBtn");
     if (
       document.body.scrollTop > 200 ||
       document.documentElement.scrollTop > 200
@@ -83,6 +81,12 @@ function ContentOne() {
     }
   }
 
+  let modal = document.getElementById("myModal");
+  let log = document.getElementById("logs");
+  
+  let top = document.getElementById("top1");
+  let send = document.getElementById("sendMoney");
+
   return (
     <>
       <nav className="wew">
@@ -91,22 +95,22 @@ function ContentOne() {
           <div className="contentSub1">
             <h1>OrgPay</h1>
             <div className="infoMain">
-              <h1 style={{ color: "aliceblue" }}>ACCOUNT INFO</h1>
+              <h3 style={{ color: "aliceblue" }}>ACCOUNT INFO</h3>
               <br />
-              <h3 className="hlev">Username:{usern}</h3>
+              <h4 className="hlev">Username: {usern}</h4>
               <br />
-              <h3 className="hlev">Email: {em}</h3>
+              <h4 className="hlev">Email: {em}</h4>
               <br />
-              <h3 className="hlev">Reference No.: {id}</h3>
+              <h4 className="hlev">Reference No.: {id}</h4>
             </div>
-            <button className="logOutButton hovbutt">LOG OUT</button>
+            <a href="/"><button className="logOutButton hovbutt">LOG OUT</button></a>
           </div>
           <div className="contentSub2">
             <div className="balanceCont">
-              <h1 className="balanceGreeting">Welcome {usern}</h1>
+              <h1 className="balanceGreeting">Welcome  {usern}</h1>
               <div className="balanceMain">
                 <div className="balanceLabel">AVAILABLE BALANCE:</div>
-                <div className="balanceDisp">₱{userBalance}</div>
+                <div className="balanceDisp">₱ {balance}</div>
               </div>
 
               <div className="buttonHolder">
@@ -137,57 +141,7 @@ function ContentOne() {
           </div>
           <div className="contentSub3">
             <h3 style={{ color: "#596e79" }}>To Pay</h3>
-            <div className="itemHolder">
-              <button className="item">
-                <BsCash size={50} />
-                <h3>Org Fee</h3>
-              </button>
-
-              <button className="item">
-                <PiHamburgerBold size={50} />
-                <h3>Burger</h3>
-              </button>
-
-              <button className="item">
-                <PiHamburgerBold size={50} />
-                <h3>Burger</h3>
-              </button>
-
-              <button className="item">
-                <PiHamburgerBold size={50} />
-                <h3>Burger</h3>
-              </button>
-
-              <button className="item">
-                <PiHamburgerBold size={50} />
-                <h3>Burger</h3>
-              </button>
-
-              <button className="item">
-                <PiHamburgerBold size={50} />
-                <h3>Burger</h3>
-              </button>
-
-              <button className="item">
-                <PiHamburgerBold size={50} />
-                <h3>Burger</h3>
-              </button>
-
-              <button className="item">
-                <PiHamburgerBold size={50} />
-                <h3>Burger</h3>
-              </button>
-
-              <button className="item">
-                <PiHamburgerBold size={50} />
-                <h3>Burger</h3>
-              </button>
-
-              <button className="item">
-                <PiHamburgerBold size={50} />
-                <h3>Burger</h3>
-              </button>
-            </div>
+              <ToPay/>
           </div>
         </div>
         <div id="myModal" className="modalTest">
@@ -201,7 +155,6 @@ function ContentOne() {
               <br />
               Please coordinate with your campus YPADS treasure to add funds to
               your account. Your current YPADS treasurer is Mark Jerome Gimena.
-              He is Gay.
             </div>
 
             <footer className="footing">

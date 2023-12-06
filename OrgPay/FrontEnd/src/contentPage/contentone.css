@@ -29,7 +29,7 @@ body {
 .contentMain {
   display: grid;
   grid-template-rows: 53vh;
-  grid-template-columns: 400px;
+  grid-template-columns: 350px;
   padding-top: 40px;
   width: 80%;
   height: 90vh;
@@ -39,7 +39,7 @@ body {
 }
 
 .contentMain > * {
-  padding: 20px;
+  padding: 10px;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
   box-shadow: 5px 5px 8px 5px rgb(216, 217, 227);
@@ -55,12 +55,14 @@ body {
   grid-column: 1 / span 1;
   border-radius: 20px 5px 5px 20px;
   box-sizing: border-box;
+  text-align: left;
 }
 
 .contentSub2 {
   grid-row: 1 / span 1;
   grid-column: 2 / span 2;
   border-radius: 5px 20px 5px 5px;
+  text-align: left;
 }
 
 .contentSub3 {
@@ -68,6 +70,7 @@ body {
   grid-row: 2 / span 1;
   grid-column: 2 / span 2;
   border-radius: 5px 5px 20px 5px;
+  text-align: left;
 }
 
 .balanceGreeting {
@@ -120,6 +123,7 @@ body {
   height: 35px;
   width: calc(100% - 40px);
   bottom: 20px;
+  left: 20px;
   border-radius: 5px 5px 5px 10px;
 }
 
@@ -138,6 +142,8 @@ body {
 
 .hovbutt:hover > .iconHold {
   border-style: solid;
+  background-color:#596e79 ;
+  color: aliceblue;
   border-width: 1px;
 }
 
@@ -159,7 +165,7 @@ body {
 }
 
 .funcButton {
-  height: 150px;
+  height: 110px;
   font-size: 2vh;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -170,7 +176,7 @@ body {
 }
 
 .addFunds {
-  height: 150px;
+  height: 110px;
   font-size: 2vh;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -294,6 +300,7 @@ body {
 
 .iconHold {
   background-color: aliceblue;
+  color: #596e79;
   position: relative;
   display: block;
   box-sizing: border-box;
