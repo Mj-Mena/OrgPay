@@ -1,35 +1,46 @@
-import { useRef, useState, useEffect} from "react";
-import './log.css';
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import "./log.css";
 
 const LogMain = (props) => {
-    var tranNo = 1
-    var sender = 'Admin'
-    var amount = -100
-    var desc = 'Org Fee'
+  var tranNo = 1;
+  var sender = "Admin";
+  var amount = -100;
+  var desc = "Org Fee";
+  const [th, setTh] = useState();
 
-    var wew = [1,2,3,4,5]
+  var wew = [1, 2, 3, 4, 5];
+  useEffect(() => {
+    axios
+      .post("http://localhost:3001/User/:email")
+      .then((result) => {
+        setTh(result.data.transloc);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-    return(
-        <nav>
-            <div className="logMain">
-                <div className="logHead">
-                    <h1 style={{fontSize:'30px'}}>TRANSACTION HISTORY</h1>
-                </div>
-                <div className="logCont">
-                    {wew?.map((x) =>( <div className="logHolder" key={'he'}>
-                        <div className="logNo">{x}</div>
-                        <div className="logFrom">{sender}</div>
-                        <div className="logChange">{amount}</div>
-                        <div className="logInfo">{desc}</div>
-                    </div>
-                    ))}
-                    
-
-                </div>
+  return (
+    <nav>
+      <div className="logMain">
+        <div className="logHead">
+          <h1 style={{ fontSize: "30px" }}>TRANSACTION HISTORY</h1>
+        </div>
+        <div className="logCont">
+          {th?.map((trans) => (
+            <div className="logHolder" key={trans._id}>
+              <div className="logNo">{trans.Title}</div>
+              <div className="logFrom">{trans.SenderEmail}</div>
+              <div className="logChange">{trans.RecieverEmail}</div>
+              <div className="logInfo">{trans.Amount}</div>
+              <div className="logInfo">{trans.Date}</div>
             </div>
-        </nav>
-    )
-}
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+};
 
 export default LogMain;
-

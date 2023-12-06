@@ -38,7 +38,6 @@ function ContentOne() {
       .catch((err) => console.log(err));
   }, []);
 
-
   function hello() {
     modal.style.display = "block";
   }
