@@ -30,16 +30,14 @@ function ContentOne() {
       .post("http://localhost:3001/User/:email", { UEmail: email })
       .then((result) => {
         console.log(result.data);
-        setUsern(result.data.Username);
-        setEm(result.data.Email);
-        setId(result.data._id);
-        setbalance(result.data.Balance);
+        setUsern(result.data.Log.Username);
+        setEm(result.data.Log.Email);
+        setId(result.data.Log._id);
+        setbalance(result.data.Log.Balance);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  const username = "usern.Username";
-  const userBalance = 69420.21;
 
   function hello() {
     modal.style.display = "block";
