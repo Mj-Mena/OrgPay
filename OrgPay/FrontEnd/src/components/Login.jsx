@@ -12,13 +12,13 @@ function Login() {
       .post("http://localhost:3001/Login", { Email, Password })
       .then((result) => {
         console.log(result);
-        alert(result.data);
+        alert(result.data.datames);
         if (result.data === "admin") {
           navigate("/admin");
         } else if (result.data === "Doesn't have an account") {
           navigate("#");
         } else {
-          navigate("/User");
+          navigate(`/User/${Email}`);
         }
       })
       .catch((err) => console.log(err));
@@ -89,4 +89,3 @@ function Login() {
   );
 }
 export default Login;
-

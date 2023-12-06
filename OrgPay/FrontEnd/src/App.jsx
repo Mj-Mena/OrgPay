@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<Landing />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/User" element={<ContentOne />}></Route>
+          <Route path="/User/:email" element={<ContentOne />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
           <Route path="/admin/transactions" element={<Transactions />}></Route>
           <Route path="/admin/users" element={<Au />}></Route>
