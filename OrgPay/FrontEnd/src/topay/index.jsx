@@ -10,8 +10,7 @@ function show({ id }) {}
 
 const ToPay = (props) => {
   const [item, setitem] = useState();
-  var itemName = "Org Fee";
-  var price = 100;
+  const [item_id, setitem_id] = useState();
   const [topay, setTopay] = useState();
   const [id, setId] = useState();
   useEffect(() => {
@@ -19,15 +18,19 @@ const ToPay = (props) => {
       .get("http://localhost:3001/admin/topay")
       .then((result) => {
         setTopay(result.data);
+        console.log(result)
       })
       .catch((err) => console.log(err));
   }, []);
 
-  function showMod() {
-    console.log("wew", item);
+  function showMod(selectedItem) {
+    console.log(selectedItem)
+    setitem(selectedItem.Title); // Set the selected item's title
+    setitem_id(selectedItem.Description);
     modal.style.display = "block";
     console.log("agay");
-  }
+  }  
+  
   function hideMod() {
     modal.style.display = "none";
   }
@@ -39,33 +42,25 @@ const ToPay = (props) => {
   return (
     <nav>
       <div className="itemHolder">
-        {topay?.map((data) => (
-          <button
-            key={data._id}
-            className="item"
-            onClick={(e) => {
-              const id = data._id;
-              setId(id);
-              showMod();
-            }}
-          >
-            <BsCash size={25} />
-            <h3>{data.Title}</h3>
-            <h4>₱ {data.Amount}</h4>
-          </button>
+      {topay?.map((data) => (
+        <button
+          key={data._id}
+          className="item"
+          onClick={() => showMod(data)} // Pass the entire data object
+        >
+        <BsCash size={25} />
+        <h3>{data.Title}</h3>
+        </button>
         ))}
+
       </div>
       <div className="conShade" id="mod">
         <div className="confirmModal">
-          Confirm Transaction
+          <h1>{item}</h1>
+          <p>ID: {item_id}</p> {/* Display item ID here */}
           <div className="butthold">
-            <button className="butt" id="conf" onClick={(e)=>{
-                window.location.reload();
-            }}>
-              Confirm
-            </button>
             <button className="butt" id="cans" onClick={hideMod}>
-              Cancel
+            CLOSE
             </button>
           </div>
         </div>

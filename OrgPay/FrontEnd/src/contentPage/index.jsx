@@ -54,6 +54,7 @@ function ContentOne() {
   function sendClose() {
     let send = document.getElementById("sendMoney");
     send.style.display = "none";
+    window.location.reload();
   }
 
   function logScroll() {
@@ -140,7 +141,7 @@ function ContentOne() {
             </div>
           </div>
           <div className="contentSub3">
-            <h3 style={{ color: "#596e79" }}>To Pay</h3>
+            <h3 style={{ color: "#596e79" }}>Quick ID Access</h3>
             <ToPay />
           </div>
         </div>

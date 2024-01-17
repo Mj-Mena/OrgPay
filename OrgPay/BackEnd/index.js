@@ -136,7 +136,7 @@ app.get("/User", async (req, res) => {
 });
 
 app.post("/User/:email", async (req, res) => {
-  const userEmail = req.body.UEmail;
+  const userEmail = req.body.UEmail; // Change this to UEmail
   const tem = req.body.tem;
   const id = req.body.id;
   const transac = await UsersModel.findOne({ _id: id });
@@ -144,8 +144,6 @@ app.post("/User/:email", async (req, res) => {
   const transloc = await transModel.find({ SenderEmail: tem });
 
   res.json({ Log: findUser, transact: transac, transloc: transloc });
-
-  // transaction
 });
 app.get("/User/:email", async (req, res) => {
   const id = req.body.id;
