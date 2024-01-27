@@ -6,6 +6,7 @@ const ToPayModel = require("./models/Topay");
 const TransacModel = require("./models/ItemTrans");
 const transModel = require("./models/ItemTrans");
 const app = express();
+require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
@@ -189,16 +190,15 @@ app.post("/transaction", async (req, res) => {
   });
   res.json(users);
 });
-PORT = 3001;
-MONGO_CONNECTION =
-  "mongodb+srv://wew:0DBgB3dk4TWKp07R@orgpay.oo5wets.mongodb.net/?authSource=OrgPay&authMechanism=SCRAM-SHA-1";
+
 mongoose
-  .connect(MONGO_CONNECTION)
+  .connect(process.env.MONGO_CONNECTION)
   .then(() => {
-    app.listen(PORT, () => {
+    app.listen(process.env.PORT, () => {
       console.log("connecting to server");
     });
   })
   .catch(() => {
     console.log("can't find db");
+    console.log(process.env.MONGO_CONNECTION);
   });
