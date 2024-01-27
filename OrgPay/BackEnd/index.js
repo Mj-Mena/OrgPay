@@ -136,23 +136,14 @@ app.get("/User", async (req, res) => {
 });
 
 app.post("/User/:email", async (req, res) => {
-  const userEmail = req.body.UEmail;
+  const userEmail = req.body.UEmail; // Change this to UEmail
   const tem = req.body.tem;
   const id = req.body.id;
-  const til = req.body.til;
   const transac = await UsersModel.findOne({ _id: id });
   const findUser = await UsersModel.findOne({ Email: userEmail });
   const transloc = await transModel.find({ SenderEmail: tem });
-  const titleLoc = await transModel.find({ Title: til });
 
-  res.json({
-    Log: findUser,
-    transact: transac,
-    transloc: transloc,
-    titles: titleLoc,
-  });
-
-  // transaction
+  res.json({ Log: findUser, transact: transac, transloc: transloc });
 });
 app.get("/User/:email", async (req, res) => {
   const id = req.body.id;
@@ -161,9 +152,11 @@ app.get("/User/:email", async (req, res) => {
 });
 
 app.get("/User/:email/get", async (req, res) => {
-  const tranLoc = await TransacModel.find();
+  const tranLoc = await TransacModel.find()
   res.json(tranLoc);
 });
+
+
 
 app.put("/User/:email", async (req, res) => {
   const id = req.body.userlogId;
@@ -185,20 +178,6 @@ app.put("/User/:email", async (req, res) => {
   }
 });
 app.post("/transaction", async (req, res) => {
-  const senderEmail = req.body.senderEm;
-  const emailUser = req.body.User;
-  const title = req.body.title;
-  const amount = req.body.Samount;
-
-  const users = await transModel.create({
-    Title: title,
-    SenderEmail: emailUser,
-    RecieverEmail: senderEmail,
-    Amount: amount,
-  });
-  res.json(users);
-});
-app.post("/transaction/admin", async (req, res) => {
   const senderEmail = req.body.senderEm;
   const emailUser = req.body.User;
   const title = req.body.title;

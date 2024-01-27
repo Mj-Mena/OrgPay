@@ -6,61 +6,31 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+function show({ id }) {}
+
 const ToPay = (props) => {
-  const { email } = useParams();
   const [item, setitem] = useState();
-  var itemName = "Org Fee";
-  var price = 100;
+  const [item_id, setitem_id] = useState();
   const [topay, setTopay] = useState();
   const [id, setId] = useState();
-  const [am, setAm] = useState();
-  const [til, setTil] = useState();
-  const [rtil, setRtil] = useState();
-  const [ltil, setLtil] = useState();
-
-  const handleclick = () => {
-    axios
-      .post("http://localhost:3001/transaction/admin", {
-        User: email,
-        senderEm: "admin@adminacc.com",
-        title: til,
-        Samount: am,
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    window.location.reload();
-  };
   useEffect(() => {
     axios
       .get("http://localhost:3001/admin/topay")
       .then((result) => {
         setTopay(result.data);
+        console.log(result)
       })
       .catch((err) => console.log(err));
   }, []);
 
-  function titleClick() {
-    axios
-      .post("http://localhost:3001/User/:email", { til: til })
-      .then((result) => {
-        const dot = result.data.titles;
-        dot.map((tr) => {
-          setRtil(tr.Title);
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  function showMod() {
-    console.log(rtil, til);
-    rtil === til ? alert("Already payed") : (modal.style.display = "block");
-  }
+  function showMod(selectedItem) {
+    console.log(selectedItem)
+    setitem(selectedItem.Title); // Set the selected item's title
+    setitem_id(selectedItem.Description);
+    modal.style.display = "block";
+    console.log("agay");
+  }  
+  
   function hideMod() {
     modal.style.display = "none";
   }
@@ -72,34 +42,25 @@ const ToPay = (props) => {
   return (
     <nav>
       <div className="itemHolder">
-        {topay?.map((data) => (
-          <button
-            key={data._id}
-            className="item"
-            onClick={(e) => {
-              titleClick();
-              setTil(data.Title);
-              const id = data._id;
-              setId(id);
-              setAm(data.Amount);
-              showMod();
-            }}
-          >
-            <BsCash size={25} />
-            <h3>{data.Title}</h3>
-            <h4>₱ {data.Amount}</h4>
-          </button>
+      {topay?.map((data) => (
+        <button
+          key={data._id}
+          className="item"
+          onClick={() => showMod(data)} // Pass the entire data object
+        >
+        <BsCash size={25} />
+        <h3>{data.Title}</h3>
+        </button>
         ))}
+
       </div>
       <div className="conShade" id="mod">
         <div className="confirmModal">
-          Confirm Transaction
+          <h1>{item}</h1>
+          <p>ID: {item_id}</p> {/* Display item ID here */}
           <div className="butthold">
-            <button className="butt" id="conf" onClick={handleclick}>
-              Confirm
-            </button>
             <button className="butt" id="cans" onClick={hideMod}>
-              Cancel
+            CLOSE
             </button>
           </div>
         </div>

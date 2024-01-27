@@ -53,11 +53,12 @@
 }
 
 .butt {
-  font-size: 2vh;
+  position: absolute;
+  font-size: 1.7vh;
   margin-top: 5vh;
-  width: 15vh;
-  height: 8vh;
-  margin-left: 2vh;
-  margin-right: 2vh;
+  width: 12vh;
+  height: 5vh;
   border-radius: 1vh;
+  bottom: 5px;
+  right: 5px;
 }
