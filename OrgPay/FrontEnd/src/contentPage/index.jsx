@@ -18,7 +18,7 @@ function ContentOne() {
   useEffect(() => {
     console.log(email);
     axios
-      .get("http://localhost:3001/User/")
+      .get("https://orgpay-backend.onrender.com/User/")
       .then((result) => {
         console.log(result.data);
       })
@@ -27,7 +27,9 @@ function ContentOne() {
   useEffect(() => {
     console.log(email);
     axios
-      .post("http://localhost:3001/User/:email", { UEmail: email })
+      .post("https://orgpay-backend.onrender.com/User/:email", {
+        UEmail: email,
+      })
       .then((result) => {
         console.log(result.data);
         setUsern(result.data.Log.Username);

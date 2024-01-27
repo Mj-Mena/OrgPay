@@ -19,7 +19,7 @@ const SendModal = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/User/")
+      .get("https://orgpay-backend.onrender.com/User/")
       .then((result) => {})
       .catch((err) => console.log(err));
   }, [email]);
@@ -31,62 +31,65 @@ const SendModal = (props) => {
         alert("Reference number cannot be empty.");
         return;
       }
-  
+
       // Fetch user data
-      const userData = await axios.post("http://localhost:3001/User/:email", {
-        id: reference,
-        UEmail: email,
-      });
-  
+      const userData = await axios.post(
+        "https://orgpay-backend.onrender.com/User/:email",
+        {
+          id: reference,
+          UEmail: email,
+        }
+      );
+
       // Check if user data is empty or does not have matching IDs
       if (!userData.data.Log || !userData.data.transact) {
         alert("No matching IDs found.");
         return;
       }
-  
+
       setbalance(userData.data.Log.Balance);
       setId(userData.data.Log._id);
       setEmail(userData.data.Log.Email);
       setSendId(userData.data.transact._id);
       setSendEm(userData.data.transact.Email);
       setSendBalance(userData.data.transact.Balance);
-  
+
       // Check if the sender and receiver emails are the same
       if (userData.data.transact.Email === email) {
         alert("Cannot send money to yourself.");
         return;
       }
-  
+
       // Check if the amount is empty, not a positive number, or less than or equal to 0
       if (!amount || isNaN(amount) || amount <= 0) {
         alert("Please enter a valid positive amount.");
         return;
       }
-  
+
       // Check if the amount is less than the balance
       if (amount < userData.data.Log.Balance) {
         // Make the transaction
-        await axios.post("http://localhost:3001/transaction", {
+        await axios.post("https://orgpay-backend.onrender.com/transaction", {
           User: userData.data.Log.Email,
           senderEm: userData.data.transact.Email,
           title: "User to User",
           Samount: amount,
         });
-        console.log(userData.data.Log.Email)
-        console.log(userData.data.transact.Email)
-  
+        console.log(userData.data.Log.Email);
+        console.log(userData.data.transact.Email);
+
         // Update balances
         const newBalance = userData.data.Log.Balance - amount;
         const sendBalance =
           Number(userData.data.transact.Balance) + Number(amount);
-  
-        await axios.put("http://localhost:3001/User/:email", {
+
+        await axios.put("https://orgpay-backend.onrender.com/User/:email", {
           userlogId: userData.data.Log._id,
           baltoUp: newBalance,
           sendLogId: userData.data.transact._id,
           sendbalancetoup: sendBalance,
         });
-  
+
         // Display success message
         alert("Transaction executed");
       } else {
@@ -94,7 +97,7 @@ const SendModal = (props) => {
       }
     } catch (error) {
       console.error(error);
-  
+
       // Check if the error is due to no matching reference ID
       if (error.response && error.response.status === 404) {
         alert("No matching reference ID found.");
@@ -102,7 +105,7 @@ const SendModal = (props) => {
     }
     window.location.reload();
   };
-  
+
   return (
     <nav>
       <div className="send-content">

@@ -13,7 +13,7 @@ function Notelist() {
   const [topay, setTopay] = useState();
   useEffect(() => {
     axios
-      .get("http://localhost:3001/admin/topay")
+      .get("https://orgpay-backend.onrender.com/admin/topay")
       .then((result) => {
         setTopay(result.data);
         topay.map((data) => {
@@ -68,7 +68,7 @@ function Notelist() {
                         onClick={() => {
                           const id = data._id;
                           axios.delete(
-                            `http://localhost:3001/admin/topay/${id}`
+                            `https://orgpay-backend.onrender.com/admin/topay/${id}`
                           );
                           alert(
                             "The payment due is now deleted, please refresh the page"

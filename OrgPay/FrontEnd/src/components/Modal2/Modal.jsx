@@ -9,11 +9,14 @@ function Modal({ OnExit }) {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post("http://localhost:3001/admin/topay", {
-        title: title,
-        desc: desc,
-        amount: amount,
-      });
+      const result = await axios.post(
+        "https://orgpay-backend.onrender.com/admin/topay",
+        {
+          title: title,
+          desc: desc,
+          amount: amount,
+        }
+      );
     } catch (error) {
       console.log(error);
     }

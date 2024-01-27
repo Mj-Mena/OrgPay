@@ -16,7 +16,7 @@ function Signup() {
       e.preventDefault();
       if (RePassword === Password) {
         const Balance = 0;
-        const result = await axios.post("http://localhost:3001/signup", {
+        const result = await axios.post("https://orgpay-backend.onrender.com/signup", {
           Username,
           Email,
           Password,

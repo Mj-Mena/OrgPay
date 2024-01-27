@@ -9,7 +9,7 @@ const LogMain = (props) => {
 
   useEffect(() => {
     axios
-      .post(`http://localhost:3001/User/${email}`, { tem: email })
+      .post(`https://orgpay-backend.onrender.com/User/${email}`, { tem: email })
       .then((result) => {
         console.log(email);
         console.log(result);
@@ -24,17 +24,19 @@ const LogMain = (props) => {
     <nav>
       <div className="logMain">
         <div className="logHead">
-          <h1 style={{ fontSize: "30px" }}>TRANSACTION {email.toUpperCase()} </h1>
+          <h1 style={{ fontSize: "30px" }}>
+            TRANSACTION {email.toUpperCase()}{" "}
+          </h1>
           {/* Replace "history" with email variable */}
         </div>
         <div className="logCont">
-            <div className="logHolder">
-              <div className="logNo">Type</div>
-              <div className="logFrom">Sender</div>
-              <div className="logChange">Reciever</div>
-              <div className="logInfo">Amount</div>
-              <div className="logInfo">Date</div>
-            </div>
+          <div className="logHolder">
+            <div className="logNo">Type</div>
+            <div className="logFrom">Sender</div>
+            <div className="logChange">Reciever</div>
+            <div className="logInfo">Amount</div>
+            <div className="logInfo">Date</div>
+          </div>
           {th.map((trans) => (
             <div className="logHolder" key={trans._id}>
               <div className="logNo"> {trans.Title}</div>

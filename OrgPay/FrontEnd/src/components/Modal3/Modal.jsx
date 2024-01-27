@@ -8,7 +8,7 @@ function Modal({ OnExit, saved, currem }) {
   const [amount, setAmount] = useState();
   const onSave = () => {
     try {
-      axios.put("http://localhost:3001/admin/topay/update", {
+      axios.put("https://orgpay-backend.onrender.com/admin/topay/update", {
         id: currem,
         Title: title,
         Description: desc,
