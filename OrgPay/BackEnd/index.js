@@ -198,7 +198,7 @@ mongoose
       console.log("connecting to server");
     });
   })
-  .catch(() => {
+  .catch((err) => {
     console.log("can't find db");
-    console.log(process.env.MONGO_CONNECTION);
+    console.log(err);
   });
