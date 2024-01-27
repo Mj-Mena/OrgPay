@@ -152,11 +152,9 @@ app.get("/User/:email", async (req, res) => {
 });
 
 app.get("/User/:email/get", async (req, res) => {
-  const tranLoc = await TransacModel.find()
+  const tranLoc = await TransacModel.find();
   res.json(tranLoc);
 });
-
-
 
 app.put("/User/:email", async (req, res) => {
   const id = req.body.userlogId;
@@ -191,10 +189,13 @@ app.post("/transaction", async (req, res) => {
   });
   res.json(users);
 });
+PORT = 3001;
+MONGO_CONNECTION =
+  "mongodb+srv://wew:0DBgB3dk4TWKp07R@orgpay.oo5wets.mongodb.net/?authSource=OrgPay&authMechanism=SCRAM-SHA-1";
 mongoose
-  .connect("mongodb://127.0.0.1:27017/Users")
+  .connect(MONGO_CONNECTION)
   .then(() => {
-    app.listen(3001, () => {
+    app.listen(PORT, () => {
       console.log("connecting to server");
     });
   })
