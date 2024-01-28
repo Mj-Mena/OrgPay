@@ -202,3 +202,4 @@ mongoose
     console.log("can't find db");
     console.log(err);
   });
+module.exports = app;
