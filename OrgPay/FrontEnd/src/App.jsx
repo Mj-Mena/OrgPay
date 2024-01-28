@@ -7,7 +7,7 @@ import ContentOne from "../src/contentPage/index";
 import Transactions from "./components/transactions/transactions";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Au from "./components/Alluser/AllUser";
-import NoteList from "./components/topay/Notelist";
+import NoteList from "./components/topay/notelist";
 function App() {
   return (
     <>
@@ -15,10 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
-          <Route
-            path="https://65b60612b6342026ec35ab8b--charming-mooncake-f8ad16.netlify.app/loginhttps://65b60612b6342026ec35ab8b--charming-mooncake-f8ad16.netlify.app/login"
-            element={<Login />}
-          ></Route>
+          <Route path="/login" element={<Login />}></Route>
           <Route path="/User/:email" element={<ContentOne />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
           <Route path="/admin/transactions" element={<Transactions />}></Route>
