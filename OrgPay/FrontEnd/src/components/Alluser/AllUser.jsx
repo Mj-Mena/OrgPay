@@ -35,8 +35,9 @@ function Alluser() {
                 <thead>
                   <tr>
                     <th>Username</th>
-                    <th> Email</th>
+                    {/* <th> Email</th> */}
                     <th>Balance</th>
+                    <th>id</th>
                     <th>Update</th>
                     <th>Delete</th>
                   </tr>
@@ -46,8 +47,9 @@ function Alluser() {
                   {users.map((user) => (
                     <tr className="data" key={user.Username}>
                       <td>{user.Username}</td>
-                      <td>{user.Email}</td>
+                      {/* <td>{user.Email}</td> */}
                       <td>{user.Balance}</td>
+                      <td>{user._id}</td>
                       <td>
                         <button
                           className="aubut"

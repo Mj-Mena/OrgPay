@@ -52,17 +52,17 @@ function Modal({ OnExit }) {
               required
               onChange={(e) => setDesc(e.target.value)}
               className="ta"
-              placeholder="Type Description"
+              placeholder="Type ID"
               id=""
               cols="20"
               rows="3"
             ></textarea>
-            <input
+            {/* <input
               required
               type="text"
               placeholder="Amount"
               onChange={(e) => setAmount(e.target.value)}
-            />
+            /> */}
             <section className="btnfoot">
               <button className="btn" type="submit">
                 <span

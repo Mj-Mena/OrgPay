@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 
 const LogMain = (props) => {
   const [th, setTh] = useState([]);
+
   const { email } = useParams();
 
   useEffect(() => {
@@ -25,27 +26,48 @@ const LogMain = (props) => {
       <div className="logMain">
         <div className="logHead">
           <h1 style={{ fontSize: "30px" }}>
-            TRANSACTION {email.toUpperCase()}{" "}
+            TRANSACTION HISTORY{" "}
           </h1>
           {/* Replace "history" with email variable */}
         </div>
         <div className="logCont">
-          <div className="logHolder">
-            <div className="logNo">Type</div>
-            <div className="logFrom">Sender</div>
-            <div className="logChange">Reciever</div>
-            <div className="logInfo">Amount</div>
-            <div className="logInfo">Date</div>
-          </div>
-          {th.map((trans) => (
+          <div className="logIn">
+            
+            <h1>Incoming</h1>
+            <div className="logHolder">
+                  <p>Reciever</p>
+                  <p>Sender</p>
+                  <p>Amount</p>
+                  <p>Date</p>
+            </div>
+            {th
+            
+            .map((trans) => (
+            
             <div className="logHolder" key={trans._id}>
-              <div className="logNo"> {trans.Title}</div>
-              <div className="logFrom">{trans.SenderEmail}</div>
-              <div className="logChange">{trans.RecieverEmail}</div>
-              <div className="logInfo">{trans.Amount}</div>
-              <div className="logInfo">{trans.Date}</div>
+                  <p>{trans.RecieverEmail}</p>
+                  <p>{trans.SenderEmail}</p>
+                  <p>{trans.Amount}</p>
+                  <p>{trans.Date}</p>
             </div>
           ))}
+          </div>
+          {/* <div className="logOut">
+            <h1>Outgoing</h1>
+            <div className="logHolder">
+                  <p>Reciever</p>
+                  <p>Amount</p>
+                  <p>Date</p>
+            </div>
+            {th
+            .map((trans) => (
+            <div className="logHolder" key={trans._id}>
+                  <p>{trans.RecieverEmail}</p>
+                  <p>{trans.Amount}</p>
+                  <p>{trans.Date}</p>
+            </div>
+          ))}
+          </div> */}
         </div>
       </div>
     </nav>

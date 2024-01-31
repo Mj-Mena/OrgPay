@@ -142,7 +142,9 @@ app.post("/User/:email", async (req, res) => {
   const id = req.body.id;
   const transac = await UsersModel.findOne({ _id: id });
   const findUser = await UsersModel.findOne({ Email: userEmail });
-  const transloc = await transModel.find({ SenderEmail: tem });
+  const transloc = await transModel.find({
+    $or: [{ SenderEmail: tem }, { RecieverEmail: tem }]
+  });
 
   res.json({ Log: findUser, transact: transac, transloc: transloc });
 });

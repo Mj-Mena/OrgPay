@@ -40,7 +40,7 @@ function Notelist() {
         <div className="notePage">
           <section className="first">
             <h1>Hello Admin, </h1>
-            <p>add a payment due</p>
+            <p>Add an ID shortcut for users</p>
           </section>
           <section className="second">
             {topay?.map((data) => (
@@ -51,7 +51,7 @@ function Notelist() {
                     Description : {data.Description}
                   </section>
                   <section className="Amount">
-                    Amount : {data.Amount}
+                    {/* Amount : {data.Amount} */}
                     <section>
                       <button
                         className="edit"

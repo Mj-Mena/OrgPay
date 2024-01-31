@@ -37,7 +37,7 @@ const Sidebar = () => {
           <Link to="/admin/topay" style={{ textDecoration: "none" }}>
             <li className="sidetags">
               <ReceiptIcon className="iccon" />
-              <span className="Menu">To Pay</span>
+              <span className="Menu">Quick ID's</span>
             </li>
           </Link>
           <Link to="/" style={{ textDecoration: "none" }}>
