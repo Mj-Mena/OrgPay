@@ -10,19 +10,33 @@ function Signup() {
   const [Tagg, SetTagg] = useState();
   const [Phrase, SetPhrase] = useState();
   const [Balance, SetBalance] = useState();
+  const [spass, setspass] = useState(true);
+  const [spass2, setspass2] = useState(true);
+
+  const handletick1 = () => {
+    setspass(!spass);
+    console.log(spass);
+  };
+  const handletick2 = () => {
+    setspass2(!spass2);
+    console.log(spass2);
+  };
   const handleSubmit = async (e) => {
-    (e) => SetBalance(0)
+    (e) => SetBalance(0);
     try {
       e.preventDefault();
       if (RePassword === Password) {
         const Balance = 0;
-        const result = await axios.post("https://orgpay-backend.onrender.com/signup", {
-          Username,
-          Email,
-          Password,
-          Phrase,
-          Balance,
-        });
+        const result = await axios.post(
+          "https://orgpay-backend.onrender.com/signup",
+          {
+            Username,
+            Email,
+            Password,
+            Phrase,
+            Balance,
+          }
+        );
         result.data == "email is already used"
           ? alert(result.data)
           : alert("Thank you for Signing up");
@@ -71,17 +85,26 @@ function Signup() {
                 required
               />
               <input
-                type="text"
+                type={spass ? "password" : "text"}
                 placeholder="Password"
                 onChange={(e) => SetPassword(e.target.value)}
                 required
               />
+              <section className="showpas">
+                <input type="checkbox" onClick={handletick1} />
+                Show Password
+              </section>
               <input
-                type="text"
+                type={spass2 ? "password" : "text"}
                 placeholder="Re-type Password"
                 onChange={(e) => SetRePassword(e.target.value)}
                 required
               />
+              <section className="showpas">
+                <input type="checkbox" onClick={handletick2} />
+                Show Password
+              </section>
+
               <input
                 type="text"
                 placeholder="Email"

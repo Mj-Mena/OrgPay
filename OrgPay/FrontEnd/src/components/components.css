@@ -93,6 +93,10 @@ body {
   font-size: 0.9rem;
   text-align: left;
 }
+.showpas {
+  font-family: "Acumin Pro", sans-serif;
+  font-size: 0.9rem;
+}
 .Fright {
   background-image: url("/img.jpg");
   margin-left: -50%;
