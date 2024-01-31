@@ -14,7 +14,7 @@ function Alluser() {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:3001/admin")
+      .get("https://orgpay-backend.onrender.com/admin")
       .then((users) => setUsers(users.data))
       .catch((err) => console.log(err));
   }, []);
@@ -66,7 +66,7 @@ function Alluser() {
                           onClick={() => {
                             const id = user._id;
                             axios.delete(
-                              `http://localhost:3001/admin/user/${id}`
+                              `https://orgpay-backend.onrender.com/admin/user/${id}`
                             );
                           }}
                         >

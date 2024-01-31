@@ -6,6 +6,7 @@ const ToPayModel = require("./models/Topay");
 const TransacModel = require("./models/ItemTrans");
 const transModel = require("./models/ItemTrans");
 const app = express();
+require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
@@ -152,11 +153,9 @@ app.get("/User/:email", async (req, res) => {
 });
 
 app.get("/User/:email/get", async (req, res) => {
-  const tranLoc = await TransacModel.find()
+  const tranLoc = await TransacModel.find();
   res.json(tranLoc);
 });
-
-
 
 app.put("/User/:email", async (req, res) => {
   const id = req.body.userlogId;
@@ -192,13 +191,16 @@ app.post("/transaction", async (req, res) => {
   });
   res.json(users);
 });
+
 mongoose
-  .connect("mongodb://127.0.0.1:27017/Users")
+  .connect(process.env.MONGO_CONNECTION)
   .then(() => {
-    app.listen(3001, () => {
+    app.listen(process.env.PORT, () => {
       console.log("connecting to server");
     });
   })
-  .catch(() => {
+  .catch((err) => {
     console.log("can't find db");
+    console.log(err);
   });
+module.exports = app;

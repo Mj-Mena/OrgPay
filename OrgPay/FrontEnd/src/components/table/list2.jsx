@@ -15,7 +15,7 @@ const List = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/admin/transactions")
+      .get("https://orgpay-backend.onrender.com/admin/transactions")
       .then(
         (users) => setUsers(users.data),
         users.map((user) => {

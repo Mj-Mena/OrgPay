@@ -15,22 +15,22 @@ const ToPay = (props) => {
   const [id, setId] = useState();
   useEffect(() => {
     axios
-      .get("http://localhost:3001/admin/topay")
+      .get("https://orgpay-backend.onrender.com/admin/topay")
       .then((result) => {
         setTopay(result.data);
-        console.log(result)
+        console.log(result);
       })
       .catch((err) => console.log(err));
   }, []);
 
   function showMod(selectedItem) {
-    console.log(selectedItem)
+    console.log(selectedItem);
     setitem(selectedItem.Title); // Set the selected item's title
     setitem_id(selectedItem.Description);
     modal.style.display = "block";
     console.log("agay");
-  }  
-  
+  }
+
   function hideMod() {
     modal.style.display = "none";
   }
@@ -42,17 +42,16 @@ const ToPay = (props) => {
   return (
     <nav>
       <div className="itemHolder">
-      {topay?.map((data) => (
-        <button
-          key={data._id}
-          className="item"
-          onClick={() => showMod(data)} // Pass the entire data object
-        >
-        <BsCash size={25} />
-        <h3>{data.Title}</h3>
-        </button>
+        {topay?.map((data) => (
+          <button
+            key={data._id}
+            className="item"
+            onClick={() => showMod(data)} // Pass the entire data object
+          >
+            <BsCash size={25} />
+            <h3>{data.Title}</h3>
+          </button>
         ))}
-
       </div>
       <div className="conShade" id="mod">
         <div className="confirmModal">
@@ -60,7 +59,7 @@ const ToPay = (props) => {
           <p>ID: {item_id}</p> {/* Display item ID here */}
           <div className="butthold">
             <button className="butt" id="cans" onClick={hideMod}>
-            CLOSE
+              CLOSE
             </button>
           </div>
         </div>

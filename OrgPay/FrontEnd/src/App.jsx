@@ -7,7 +7,7 @@ import ContentOne from "../src/contentPage/index";
 import Transactions from "./components/transactions/transactions";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Au from "./components/Alluser/AllUser";
-import NoteList from "./components/topay/Notelist";
+import NoteList from "./components/topay/notelist";
 function App() {
   return (
     <>
